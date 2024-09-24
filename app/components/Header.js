@@ -37,7 +37,7 @@ export default function Header() {
       </header>
 
       {/* Printer Section with Blue Wave */}
-      <section className="relative bg-[#e5e7eb]">
+      <section className="relative bg-[#e5e7eb] h-[423px]">
         {/* Blue Wave on Bottom */}
         <div className="absolute bottom-0 left-0 right-0">
           <svg className="w-full" viewBox="0 0 2000 318" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +49,7 @@ export default function Header() {
         </div>
 
         {/* Printer Cards */}
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center pt-[20px]">
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center pt-[40px]">
           <div className="flex flex-col items-center">
             {/* <div className="w-[287px] h-[287px] bg-white rounded-full shadow-lg flex items-center justify-center"> */}
             <Image
@@ -59,7 +59,14 @@ export default function Header() {
               height={287}
             />
             {/* </div> */}
-            <p className="mt-4 text-white font-semibold font-montserrat">HP</p>
+            <span class="flex items-center justify-center bg-white cursor-pointer w-[200px] h-[55px] rounded-[30px] relative inline-block">
+            <Image
+              src="/hplogo.png"
+              alt="Epson Printer"
+              width={37}
+              height={37}
+            />
+            </span>
           </div>
 
           <div className="flex flex-col items-center">
@@ -71,7 +78,14 @@ export default function Header() {
               height={287}
             />
             {/* </div> */}
-            <p className="mt-4 text-white font-semibold">Canon</p>
+            <span class="flex items-center justify-center bg-white cursor-pointer w-[200px] h-[55px] rounded-[30px] relative inline-block">
+            <Image
+              src="/canonlogo.png"
+              alt="Epson Printer"
+              width={93}
+              height={22}
+            />
+            </span>
           </div>
 
           <div className="flex flex-col items-center">
@@ -83,7 +97,14 @@ export default function Header() {
               height={287}
             />
             {/* </div> */}
-            <p className="mt-4 text-white font-semibold">Epson</p>
+            <span class="flex items-center justify-center bg-white cursor-pointer w-[200px] h-[55px] rounded-[30px] relative inline-block">
+            <Image
+              src="/epsonlogo.png"
+              alt="Epson Printer"
+              width={93}
+              height={28}
+            />
+            </span>
           </div>
 
           <div className="flex flex-col items-center">
@@ -95,7 +116,14 @@ export default function Header() {
               height={287}
             />
             {/* </div> */}
-            <p className="mt-4 text-white font-semibold">Brother</p>
+            <span class="flex items-center justify-center bg-white cursor-pointer w-[200px] h-[55px] rounded-[30px] relative inline-block">
+            <Image
+              src="/brotherlogo.png"
+              alt="Epson Printer"
+              width={92}
+              height={20}
+            />
+            </span>
           </div>
         </div>
 
@@ -104,6 +132,7 @@ export default function Header() {
           Call for Assistance At +1 (866) 200-9902
         </div>
       </section>
+      
     </div>
   );
 }
