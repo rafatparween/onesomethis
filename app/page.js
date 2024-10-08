@@ -1,12 +1,12 @@
 // app/page.js
 import { Montserrat } from 'next/font/google';
-import Header from './components/Header';
 import SkillsGrid from './components/Skillsgrid';
 import Technicians from './components/Technicians';
 import Assistance from './components/Assistance';
 import Avoidprinter from './components/Avoidprinter';
 import Help from './components/Help';
 import Secondpage from './components/Secondpage';
+import PrinterSetup from './components/Printersetup';
 
 // Import Montserrat font
 const montserrat = Montserrat({
@@ -17,7 +17,7 @@ const montserrat = Montserrat({
 export default function Home() {
   return (
     <main className={montserrat.className}>
-      <Header />
+      <PrinterSetup/>
       <Technicians/>
       <Assistance/>
       <SkillsGrid />
