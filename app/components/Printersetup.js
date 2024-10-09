@@ -3,7 +3,6 @@ import React from 'react';
 import { useRouter } from 'next/navigation'; 
 import './Printersetup.css';
 
-
 const PrinterSetup = () => {
   const router = useRouter(); 
 
@@ -14,15 +13,14 @@ const PrinterSetup = () => {
   return (
     <div className="printer-setup">
       <div className="text-content ">
-        <h1>123 PRINTER SETUP</h1>
-        <ul>
+        <h1 className='setup'>123 PRINTER SETUP</h1>
+        <ul className='mt-[-20px]'>
           <li>Make sure your printer is powered on</li>
-          <li className='select'>Select Download to install the recommended
-          printer software to complete setup</li>
+          <li className='select'>Select Download to install the recommended printer software to complete setup</li>
         </ul>
         <button className="btn" onClick={handleSetupClick}>
           Click For Chat Assistance
-          <img src='hplogo.png' alt="HP Logo" className="hp-logo" />
+          {/* <img src='hplogo.png' alt="HP Logo" className="hp-logo" /> */}
         </button>
       </div>
 

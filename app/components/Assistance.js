@@ -1,7 +1,7 @@
 function Assistance(){
     return(
         <>
-            <div className="row flex flex-wrap justify-center gap-8 bg-[F0F0F0]">
+            <div className="row flex flex-wrap justify-center gap-8 mt-[60px]">
                     <div className="col-12 col-md-auto d-grid align-content-between ms-auto">
                         <div className="row mb-3">
                             <div className="col-12"><svg width="160" height="95" viewBox="0 0 160 95" fill="none" xmlns="http://www.w3.org/2000/svg">
