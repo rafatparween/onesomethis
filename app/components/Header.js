@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Header() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative h-[660px]">
       <header className="relative bg-gray-100">
         <div className="absolute top-0 left-0 right-0">
           <svg className="w-full" viewBox="0 0 2000 121" fill="none" xmlns="http://www.w3.org/2000/svg">

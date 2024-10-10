@@ -5,9 +5,8 @@ import Technicians from './components/Technicians';
 import Assistance from './components/Assistance';
 import Avoidprinter from './components/Avoidprinter';
 import Help from './components/Help';
-import PrinterSetup from './components/Printersetup';
-import Digonode from './components/Dignode';
-import Newlife from './components/Newlife';
+// import Newlife from './components/Newlife';
+import Header from './components/Header';
 
 // Import Montserrat font
 const montserrat = Montserrat({
@@ -18,9 +17,8 @@ const montserrat = Montserrat({
 export default function Home() {
   return (
     <main className={montserrat.className}>
-      <PrinterSetup/>
-      <Digonode/>
-      <Newlife/>
+      <Header/>
+      {/* <Newlife/> */}
       <Technicians/>
       <Assistance/>
       <SkillsGrid />
