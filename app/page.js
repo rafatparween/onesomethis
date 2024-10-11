@@ -7,6 +7,7 @@ import Avoidprinter from './components/Avoidprinter';
 import Help from './components/Help';
 // import Newlife from './components/Newlife';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 // Import Montserrat font
 const montserrat = Montserrat({
@@ -24,6 +25,7 @@ export default function Home() {
       <SkillsGrid />
       <Avoidprinter/>
       <Help/>
+      <Footer/>
 
      
     </main>
