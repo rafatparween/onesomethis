@@ -134,12 +134,12 @@ import Link from 'next/link';
 function Printersearch() {
   return (
     <>
-      <div className="h-[530px] mt-[80px]">
+      <div className="h-[530px] mt-[80px] bg-[#ED3237]">
         <section
           className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[530px]"
-          style={{
-            backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
-          }}
+          // style={{
+          //   backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
+          // }}
         >
           <div className="absolute inset-0 opacity-80"></div>
 
@@ -162,7 +162,7 @@ function Printersearch() {
                   <span className="text-[34px] w-[50px] h-[40px]">2.</span>
                   <p className="text-[34px] whitespace-nowrap 2xl:ml-[5px] 2xl:mt-[9px]">Click Install Setup & driver to complete your printer setup</p>
                 </div>
-                <Link href="./install/process">
+                <Link href="./canoninstall/process">
                   <button className="install border border-white mt-8 bg-white w-[230px] h-[50px]  2xl:ml-[-189px] xl:ml-[-301px] py-2 px-6 rounded-lg font-bold shadow-md hover:bg-gray-100 transition duration-300 relative overflow-hidden">
                     <h1 className='text-[16px] text-black'>Install Setup & Drivers</h1>
                   </button>

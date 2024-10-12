@@ -281,27 +281,21 @@ function Home() {
   const [filteredModels, setFilteredModels] = useState([]);
 
   const printerModels = [
-    'HP OfficeJet Pro 9010 All-in-One Printer',
-    'HP OfficeJet Pro 9000 Series',
-    'HP OfficeJet Pro 9010e All-in-One Printer',
-    'HP OfficeJet Pro 9015 All-in-One Printer',
-    'HP OfficeJet Pro 9014 All-in-One Printer',
-    'HP OfficeJet Pro 9018 All-in-One Printer',
-    'HP ENVY 120 e-All-in-One Printer series',
-    'HP ENVY 4500 e-All-in-One Printer series',
-    'HP ENVY 4510 All-in-One Printer series',
-    'HP ENVY 4520 e-All-in-One Printer series',
-    'HP ENVY 5000 All-in-One Printer series',
-    'HP ENVY 5500 All-in-One Printer series',
-    'HP ENVY 5540 All-in-One Printer series',
-    'HP ENVY 5600 e-All-in-One Printer series',
-    'HP ENVY 7600 e-All-in-One Printer series',
-    'HP ENVY Photo 6200 All-in-One Printer series',
-    'HP Deskjet D1360 Printer series',
-    'HP Deskjet Ink Advantage Ultra 4800 series',
-    'HP DeskJet Ink Advantage 2800 All-in-One Printer series',
-    'HP DeskJet Ink Advantage 5200 All-in-One Printer series',
-    'HP Deskjet D1330 Printer series',
+    'Brother MFC-J995DW Inkjet All-in-One Printer',
+'Brother MFC-L3770CDW Color Laser All-in-One Printer',
+'Brother HL-L2350DW Compact Laser Printer',
+'Brother MFC-L2710DW Compact Laser All-in-One Printer',
+'Brother MFC-J6945DW INKvestment Tank Color All-in-One Printer',
+'Brother HL-L6200DW Business Laser Printer',
+'Brother MFC-J5330DW INKvestment Tank Color All-in-One Printer',
+'Brother MFC-L5700DW Laser All-in-One Printer',
+'Brother DCP-L2550DW Compact Laser All-in-One Printer',
+'Brother MFC-L3750CDW Color Laser All-in-One Printer',
+'Brother MFC-J995DW INKvestment Tank Color All-in-One Printer',
+'Brother MFC-L6800DW Laser All-in-One Printer',
+'Brother MFC-L8900CDW Color Laser All-in-One Printer',
+'Brother HL-L2395DW All-in-One Laser Printer',
+'Brother MFC-J6935DW INKvestment Tank Color All-in-One Printer',
   ];
 
   const handleSearchChange = (event) => {
@@ -325,24 +319,24 @@ function Home() {
   const handleSearchClick = () => {
     if (searchTerm) {
       const searchPath = searchTerm.replace(/\s+/g, '-').replace(/\//g, '-');
-      router.push(`./Pages/install?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
+      router.push(`./brother/brotherinstall?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
     } else {
       alert("Please select or enter a model before searching."); // Alert if the input is empty
     }
   };
 
   return (
-    <div className="h-[409px] mt-[80px]">
+    <div className="h-[409px] mt-[80px] bg-[#0D2EA0]">
       <section 
         className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[409px]"
-        style={{
-          backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
-        }}
+        // style={{
+        //   backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
+        // }}
       >
         <div className="absolute inset-0 opacity-80"></div>
         <div className="relative z-10 text-white 2xl:mt-[142px] xl:mt-[116px] 2xl:ml-[-825px] xl:ml-[-567px] ">
-          <h1 className="text-4xl font-hp-simplified text-[44px] 2xl:ml-[-290px] xl:ml-[-309px]">Set up HP Printer</h1>
-          <p className="mt-[35px] text-[27px] text-[24px] xl:ml-[377px] 2xl:ml-[406px]">Enter your printer name and model number to get the right drivers for your printer.</p>
+          <h1 className="text-4xl font-hp-simplified text-[44px] 2xl:ml-[-206px] xl:ml-[-309px]">Set up Brother Printer</h1>
+          <p className="mt-[35px] text-[27px] text-[24px] xl:ml-[324px] 2xl:ml-[344px]">Enter your printer name and model number to get the right drivers for your printer.</p>
 
           {/* Input Section */}
           <div className="mt-8 flex space-x-4 justify-center">
@@ -364,7 +358,7 @@ function Home() {
 
           {/* Dropdown for filtered models */}
           {filteredModels.length > 0 && (
-            <ul className="absolute left-0 mt-1 w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg z-10 2xl:ml-[409px] xl:ml-[223px] text-black">
+            <ul className="absolute left-0 mt-1 w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg z-10 2xl:ml-[344px] xl:ml-[311px] text-black">
               {filteredModels.map((model) => (
                 <li
                   key={model}
@@ -380,10 +374,10 @@ function Home() {
 
         <div className="relative z-10 mt-12 ml-auto">
           <img
-            src="https://wingscarepro.com/setup/resources/assets/img/defaultPrinterSetup.png"  
+            src="https://onesomethis.online/assets/image/conn.png"  
             alt="Printer setup devices"
-            width={350}
-            height={196}
+            width={450}
+            height={296}
             className="object-contain 2xl:mr-[436px] xl:mr-[202px] 2xl:mr-[232px]"
           />
         </div>

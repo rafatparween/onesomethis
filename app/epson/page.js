@@ -281,27 +281,16 @@ function Home() {
   const [filteredModels, setFilteredModels] = useState([]);
 
   const printerModels = [
-    'HP OfficeJet Pro 9010 All-in-One Printer',
-    'HP OfficeJet Pro 9000 Series',
-    'HP OfficeJet Pro 9010e All-in-One Printer',
-    'HP OfficeJet Pro 9015 All-in-One Printer',
-    'HP OfficeJet Pro 9014 All-in-One Printer',
-    'HP OfficeJet Pro 9018 All-in-One Printer',
-    'HP ENVY 120 e-All-in-One Printer series',
-    'HP ENVY 4500 e-All-in-One Printer series',
-    'HP ENVY 4510 All-in-One Printer series',
-    'HP ENVY 4520 e-All-in-One Printer series',
-    'HP ENVY 5000 All-in-One Printer series',
-    'HP ENVY 5500 All-in-One Printer series',
-    'HP ENVY 5540 All-in-One Printer series',
-    'HP ENVY 5600 e-All-in-One Printer series',
-    'HP ENVY 7600 e-All-in-One Printer series',
-    'HP ENVY Photo 6200 All-in-One Printer series',
-    'HP Deskjet D1360 Printer series',
-    'HP Deskjet Ink Advantage Ultra 4800 series',
-    'HP DeskJet Ink Advantage 2800 All-in-One Printer series',
-    'HP DeskJet Ink Advantage 5200 All-in-One Printer series',
-    'HP Deskjet D1330 Printer series',
+    'Epson EcoTank ET-2720 All-in-One Printer',
+'Epson WorkForce WF-4830 All-in-One Printer',
+'Epson Expression Premium XP-7100 All-in-One Printer',
+'Epson SureColor P400 Wide-Format Printer',
+'Epson EcoTank ET-4760 All-in-One Printer',
+'Epson WorkForce WF-7820 Wide-Format All-in-One Printer',
+'Epson Expression Home XP-4100 All-in-One Printer',
+'Epson EcoTank ET-15000 Wide-Format All-in-One Printer',
+'Epson WorkForce WF-7710 Wide-Format All-in-One Printer',
+'Epson SureColor P600 Wide-Format Printer',
   ];
 
   const handleSearchChange = (event) => {
@@ -325,24 +314,24 @@ function Home() {
   const handleSearchClick = () => {
     if (searchTerm) {
       const searchPath = searchTerm.replace(/\s+/g, '-').replace(/\//g, '-');
-      router.push(`./Pages/install?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
+      router.push(`./epson/epsoninstall?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
     } else {
       alert("Please select or enter a model before searching."); // Alert if the input is empty
     }
   };
 
   return (
-    <div className="h-[409px] mt-[80px]">
+    <div className="h-[409px] mt-[80px] bg-[#10218B]">
       <section 
         className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[409px]"
-        style={{
-          backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
-        }}
+        // style={{
+        //   backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
+        // }}
       >
         <div className="absolute inset-0 opacity-80"></div>
         <div className="relative z-10 text-white 2xl:mt-[142px] xl:mt-[116px] 2xl:ml-[-825px] xl:ml-[-567px] ">
-          <h1 className="text-4xl font-hp-simplified text-[44px] 2xl:ml-[-290px] xl:ml-[-309px]">Set up HP Printer</h1>
-          <p className="mt-[35px] text-[27px] text-[24px] xl:ml-[377px] 2xl:ml-[406px]">Enter your printer name and model number to get the right drivers for your printer.</p>
+          <h1 className="text-4xl font-hp-simplified text-[44px] 2xl:ml-[-224px] xl:ml-[-309px]">Set up Epson Printer</h1>
+          <p className="mt-[35px] text-[27px] text-[24px] xl:ml-[324px] 2xl:ml-[344px]">Enter your printer name and model number to get the right drivers for your printer.</p>
 
           {/* Input Section */}
           <div className="mt-8 flex space-x-4 justify-center">
@@ -364,7 +353,7 @@ function Home() {
 
           {/* Dropdown for filtered models */}
           {filteredModels.length > 0 && (
-            <ul className="absolute left-0 mt-1 w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg z-10 2xl:ml-[409px] xl:ml-[223px] text-black">
+            <ul className="absolute left-0 mt-1 w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg z-10 2xl:ml-[344px] xl:ml-[311px] text-black">
               {filteredModels.map((model) => (
                 <li
                   key={model}
@@ -380,10 +369,10 @@ function Home() {
 
         <div className="relative z-10 mt-12 ml-auto">
           <img
-            src="https://wingscarepro.com/setup/resources/assets/img/defaultPrinterSetup.png"  
+            src="https://onesomethis.online/assets/image/conn.png"  
             alt="Printer setup devices"
-            width={350}
-            height={196}
+            width={450}
+            height={296}
             className="object-contain 2xl:mr-[436px] xl:mr-[202px] 2xl:mr-[232px]"
           />
         </div>

@@ -77,12 +77,10 @@ export default function InstallingDriversPage() {
             <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-white p-4">
                 {/* HP Logo */}
                 <div className="mb-4 md:mb-0 md:mr-8 flex-shrink-0">
-                    <Image
-                        src="/hplogo.png"
+                    <img
+                        src="https://www.brother-usa.com/-/media/iprintscan_logo_billboard_sidekick.jpg?h=400&w=528&la=en&hash=6DCCD1346AD6A8A1B57BD3E0D460A80E"
                         alt="HP Logo"
-                        width={550}
-                        height={550}
-                        className="w-24 w-[225px] h-[225px]"
+                        className="h-[234px] w-[343px]"
                     />
                 </div>
 
@@ -99,19 +97,19 @@ export default function InstallingDriversPage() {
 
                 {/* Error Image */}
                 <div className="flex-shrink-0">
-                    <Image
-                        src="/loadin.jpg"
+                    <img
+                        src="https://www.brother-usa.com/-/media/brother/product-catalog-media/images/2024/04/22/14/23/mfcj6540dw_spinner.jpg"
                         alt="Printer Error"
-                        width={550}
-                        height={550}
-                        className="mb-[-103px]"
+                        // width={550}
+                        // height={550}
+                        className="mb-[-103px] h-[550px] w-[550px]"
                     />
                 </div>
             </div>
             {/* <div className="w-[1835px] h-[58px] text-center text-lg md:text-xl lg:text-4xl font-semibold mt-[-297px] ml-[-113px] ">
                 Installing HP Software and Drivers...
             </div> */}
-            <div className="flex 2xl:justify-center 2xl:ml-[357px] 2xl:mt-[-283px] xl:ml-[310px] xl:mt-[-190px] w-full max-w-4xl h-auto text-lg md:text-xl lg:text-2xl xl:text-4xl font-semibold mt-8 mx-4 md:mx-8 lg:mx-12 mt-[-197px] text-[#007DBA] sm:mt-[-360px]">
+            <div className="flex 2xl:justify-center 2xl:ml-[357px] 2xl:mt-[-283px] xl:ml-[310px] xl:mt-[-190px] w-full max-w-4xl h-auto text-lg md:text-xl lg:text-2xl xl:text-4xl font-semibold mt-8 mx-4 md:mx-8 lg:mx-12 mt-[-197px] text-[#0D2EA0] sm:mt-[-360px]">
                 Installing HP Software and Drivers...
             </div>
 

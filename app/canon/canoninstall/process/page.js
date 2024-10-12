@@ -77,12 +77,10 @@ export default function InstallingDriversPage() {
             <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-white p-4">
                 {/* HP Logo */}
                 <div className="mb-4 md:mb-0 md:mr-8 flex-shrink-0">
-                    <Image
-                        src="/hplogo.png"
+                    <img
+                        src="https://play-lh.googleusercontent.com/lQVanDo0iBQXB0lRPXEgNpMaoJLGGwkBwLpm6QMFJxdIx6XcYof6tqq4TQ1mksKp_A4=w600-h300-pc0xffffff-pd"
                         alt="HP Logo"
-                        width={550}
-                        height={550}
-                        className="w-24 w-[225px] h-[225px]"
+                        className="w-[407px] h-[197px]"
                     />
                 </div>
 
@@ -99,8 +97,8 @@ export default function InstallingDriversPage() {
 
                 {/* Error Image */}
                 <div className="flex-shrink-0">
-                    <Image
-                        src="/loadin.jpg"
+                    <img
+                        src="https://www.livemint.com/lm-img/img/2024/03/26/600x338/best_canon_printer_1711438584310_1711438609558.jpg"
                         alt="Printer Error"
                         width={550}
                         height={550}
@@ -111,8 +109,8 @@ export default function InstallingDriversPage() {
             {/* <div className="w-[1835px] h-[58px] text-center text-lg md:text-xl lg:text-4xl font-semibold mt-[-297px] ml-[-113px] ">
                 Installing HP Software and Drivers...
             </div> */}
-            <div className="flex 2xl:justify-center 2xl:ml-[357px] 2xl:mt-[-283px] xl:ml-[310px] xl:mt-[-190px] w-full max-w-4xl h-auto text-lg md:text-xl lg:text-2xl xl:text-4xl font-semibold mt-8 mx-4 md:mx-8 lg:mx-12 mt-[-197px] text-[#007DBA] sm:mt-[-360px]">
-                Installing HP Software and Drivers...
+            <div className="flex 2xl:justify-center 2xl:ml-[408px] 2xl:mt-[-283px] xl:ml-[310px] xl:mt-[-190px] w-full max-w-4xl h-auto text-lg md:text-xl lg:text-2xl xl:text-4xl font-semibold mt-8 mx-4 md:mx-8 lg:mx-12 mt-[-197px] text-[#ED3237] sm:mt-[-360px]">
+                Installing Canon Software and Drivers...
             </div>
 
 

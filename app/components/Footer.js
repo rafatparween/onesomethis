@@ -18,10 +18,10 @@ const Footer = () => {
                     <div className="flex flex-col text-start mb-4 md:mb-0">
                         {[
                             { name: 'Home', path: '/' },
-                            { name: 'About us', path: '/about' },
-                            { name: 'Contact us', path: '/contact' },
-                            { name: 'Services', path: '/services' },
-                            { name: 'Disclaimer', path: '/disclaimer' }
+                            { name: 'About us', path: '/' },
+                            { name: 'Contact us', path: '/' },
+                            { name: 'Services', path: '/' },
+                            { name: 'Disclaimer', path: '/' }
                         ].map(({ name, path }) => (
                             <Link
                                 key={name}
@@ -35,14 +35,13 @@ const Footer = () => {
                 </div>
 
                 <div>
-                    <p>Our Policies</p>
                     <div className="flex flex-col text-start mb-4 md:mb-0 text-[14px]">
                         {[
-                            { name: 'Terms and Conditions', path: '/termsConditions' },
-                            { name: 'Privacy Policy', path: '/privacyPolicy' },
-                            { name: 'License Agreement', path: '/license-agreement' },
-                            { name: 'Copyright Information', path: '/copyright-information' },
-                            { name: 'Cookies Policy', path: '/cookies-policy' }
+                            { name: 'Terms and Conditions', path: '/' },
+                            { name: 'Privacy Policy', path: '/' },
+                            { name: 'License Agreement', path: '/' },
+                            { name: 'Copyright Information', path: '/' },
+                            { name: 'Cookies Policy', path: '/' }
                         ].map(({ name, path }) => (
                             <Link
                                 key={name}

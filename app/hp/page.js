@@ -325,7 +325,7 @@ function Home() {
   const handleSearchClick = () => {
     if (searchTerm) {
       const searchPath = searchTerm.replace(/\s+/g, '-').replace(/\//g, '-');
-      router.push(`./Pages/install?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
+      router.push(`./hp/install?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
     } else {
       alert("Please select or enter a model before searching."); // Alert if the input is empty
     }
@@ -342,7 +342,7 @@ function Home() {
         <div className="absolute inset-0 opacity-80"></div>
         <div className="relative z-10 text-white 2xl:mt-[142px] xl:mt-[116px] 2xl:ml-[-825px] xl:ml-[-567px] ">
           <h1 className="text-4xl font-hp-simplified text-[44px] 2xl:ml-[-290px] xl:ml-[-309px]">Set up HP Printer</h1>
-          <p className="mt-[35px] text-[27px] text-[24px] xl:ml-[377px] 2xl:ml-[406px]">Enter your printer name and model number to get the right drivers for your printer.</p>
+          <p className="mt-[35px] text-[27px] text-[24px] xl:ml-[324px] 2xl:ml-[344px]">Enter your printer name and model number to get the right drivers for your printer.</p>
 
           {/* Input Section */}
           <div className="mt-8 flex space-x-4 justify-center">
@@ -364,7 +364,7 @@ function Home() {
 
           {/* Dropdown for filtered models */}
           {filteredModels.length > 0 && (
-            <ul className="absolute left-0 mt-1 w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg z-10 2xl:ml-[409px] xl:ml-[223px] text-black">
+            <ul className="absolute left-0 mt-1 w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg z-10 2xl:ml-[344px] xl:ml-[311px] text-black">
               {filteredModels.map((model) => (
                 <li
                   key={model}
