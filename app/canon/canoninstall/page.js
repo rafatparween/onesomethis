@@ -126,80 +126,163 @@
 // export default Printersearch;
 
 
-"use client"; // This should be at the top of the file
+// "use client"; // This should be at the top of the file
 
-import Storepage from '@/app/components/Storepage';
+// import Storepage from '@/app/components/Storepage';
+// import Link from 'next/link';
+
+// function Printersearch() {
+//   return (
+//     <>
+//       <div className="h-[530px] mt-[80px] bg-[#ED3237]">
+//         <section
+//           className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[530px]"
+//           // style={{
+//           //   backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
+//           // }}
+//         >
+//           <div className="absolute inset-0 opacity-80"></div>
+
+//           {/* Main content */}
+//           <div className="relative z-10 text-white 2xl:ml-[-392px]">
+//             <h1 className="text-[54px] mb-4 xl:ml-[-247px] 2xl:ml-[5px]">Complete setup using Professionals Help</h1>
+//             <div className="border-t border-white w-[1100px] mx-auto mb-8 mt-[-19px] xl:ml-[-4px]"></div>
+
+//             {/* Main Content Section */}
+//             <div className="flex flex-col lg:flex-row justify-between items-start">
+//               {/* Left Side: Text and Steps */}
+//               <div className="space-y-4 lg:w-1/2 lg:pr-8 2xl:ml-[34px]">
+//                 {/* Step 1 */}
+//                 <div className="flex items-center space-x-3">
+//                   <span className="text-[35px] w-[41px] h-[58px]">1.</span>
+//                   <p className="text-[34px] whitespace-nowrap">Make sure that your printer is powered on</p>
+//                 </div>
+//                 {/* Step 2 */}
+//                 <div className="flex items-center space-x-3">
+//                   <span className="text-[34px] w-[50px] h-[40px]">2.</span>
+//                   <p className="text-[34px] whitespace-nowrap 2xl:ml-[5px] 2xl:mt-[9px]">Click Install Setup & driver to complete your printer setup</p>
+//                 </div>
+//                 <Link href="./canoninstall/process">
+//                   <button className="install border border-white mt-8 bg-white w-[230px] h-[50px]  2xl:ml-[-189px] xl:ml-[-301px] py-2 px-6 rounded-lg font-bold shadow-md hover:bg-gray-100 transition duration-300 relative overflow-hidden">
+//                     <h1 className='text-[16px] text-black'>Install Setup & Drivers</h1>
+//                   </button>
+//                 </Link>
+//               </div>
+
+//               {/* Printer and Devices Image */}
+//               <div className="relative z-10 mt-12 lg:mt-0 lg:w-1/2 flex justify-center">
+//                 <img
+//                   src="https://wingscarepro.com/setup/resources/printer_images/OTHER-PRINTERS/290x245.png"  // Replace with actual path
+//                   alt="Printer setup devices"
+//                   width={316}
+//                   height={252}
+//                   className="object-contain 2xl:mr-[-1041px] "
+//                 />
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* Additional content */}
+//         <div className="flex flex-col items-center">
+//           <h1 className="mt-[30px] ml-[-592px] text-[16px]">Also available on:</h1>
+//           <img 
+//             src="https://www.freepnglogos.com/uploads/app-store-logo-png/google-play-and-apple-app-store-logos-22.png" 
+//             className="h-[50px] mt-4 ml-[-406px] " 
+//             alt="Available on"
+//           />
+//         </div>
+//       </div>
+//       <Storepage/>
+      
+//     </>
+//   );
+// }
+
+// export default Printersearch;
+
+
+
+// pages/index.j
+import Image from 'next/image';
 import Link from 'next/link';
 
-function Printersearch() {
+export default function Printersearch() {
   return (
-    <>
-      <div className="h-[530px] mt-[80px] bg-[#ED3237]">
-        <section
-          className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[530px]"
-          // style={{
-          //   backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
-          // }}
-        >
-          <div className="absolute inset-0 opacity-80"></div>
+    <div className="flex flex-col items-center bg-white min-h-screen p-6 text-gray-700 font-sans">
+      {/* Canon Header */}
+      <div className="flex items-center w-full max-w-4xl mb-6">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Canon_logo.svg"
+          alt="Canon Logo"
+          className="w-24"
+        />
+        <Link href="#" className="text-red-600 text-sm font-semibold ml-4">
+          &lt; Return to Selection Screen
+        </Link>
+        <select className="ml-auto border border-gray-300 rounded-md p-1 text-sm">
+          <option>Windows</option>
+        </select>
+      </div>
 
-          {/* Main content */}
-          <div className="relative z-10 text-white 2xl:ml-[-392px]">
-            <h1 className="text-[54px] mb-4 xl:ml-[-247px] 2xl:ml-[5px]">Complete setup using Professionals Help</h1>
-            <div className="border-t border-white w-[1100px] mx-auto mb-8 mt-[-19px] xl:ml-[-4px]"></div>
-
-            {/* Main Content Section */}
-            <div className="flex flex-col lg:flex-row justify-between items-start">
-              {/* Left Side: Text and Steps */}
-              <div className="space-y-4 lg:w-1/2 lg:pr-8 2xl:ml-[34px]">
-                {/* Step 1 */}
-                <div className="flex items-center space-x-3">
-                  <span className="text-[35px] w-[41px] h-[58px]">1.</span>
-                  <p className="text-[34px] whitespace-nowrap">Make sure that your printer is powered on</p>
-                </div>
-                {/* Step 2 */}
-                <div className="flex items-center space-x-3">
-                  <span className="text-[34px] w-[50px] h-[40px]">2.</span>
-                  <p className="text-[34px] whitespace-nowrap 2xl:ml-[5px] 2xl:mt-[9px]">Click Install Setup & driver to complete your printer setup</p>
-                </div>
-                <Link href="./canoninstall/process">
-                  <button className="install border border-white mt-8 bg-white w-[230px] h-[50px]  2xl:ml-[-189px] xl:ml-[-301px] py-2 px-6 rounded-lg font-bold shadow-md hover:bg-gray-100 transition duration-300 relative overflow-hidden">
-                    <h1 className='text-[16px] text-black'>Install Setup & Drivers</h1>
-                  </button>
-                </Link>
-              </div>
-
-              {/* Printer and Devices Image */}
-              <div className="relative z-10 mt-12 lg:mt-0 lg:w-1/2 flex justify-center">
-                <img
-                  src="https://wingscarepro.com/setup/resources/printer_images/OTHER-PRINTERS/290x245.png"  // Replace with actual path
-                  alt="Printer setup devices"
-                  width={316}
-                  height={252}
-                  className="object-contain 2xl:mr-[-1041px] "
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Additional content */}
-        <div className="flex flex-col items-center">
-          <h1 className="mt-[30px] ml-[-592px] text-[16px]">Also available on:</h1>
-          <img 
-            src="https://www.freepnglogos.com/uploads/app-store-logo-png/google-play-and-apple-app-store-logos-22.png" 
-            className="h-[50px] mt-4 ml-[-406px] " 
-            alt="Available on"
-          />
+      {/* Title and Model Section */}
+      <div className="w-full max-w-4xl bg-gray-100 flex items-center p-4 rounded mb-4 shadow">
+        <div className="w-1 h-12 bg-red-600 mr-4"></div>
+        <div>
+          <h1 className="text-lg font-semibold text-gray-800">TS207</h1>
+          <h2 className="text-2xl font-bold text-gray-800">Setup - Windows -</h2>
         </div>
       </div>
-      <Storepage/>
-      
-    </>
+
+      {/* Setup Section */}
+      <div className="w-full max-w-4xl bg-white p-6 shadow-md border border-gray-300 rounded-md">
+        <h3 className="text-xl font-bold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+          Setup
+        </h3>
+
+        {/* Important Notice Section */}
+        <div className="flex items-start space-x-2 mb-4">
+          <div className="w-1 bg-red-600"></div>
+          <div className="bg-red-100 text-red-700 p-4 rounded-md text-sm w-full">
+            <p className="font-bold text-base mb-1">Important</p>
+            <p>
+              If you are using <span className="font-semibold">Windows 11 in S mode</span>, <span className="font-semibold">Windows 10 in S mode</span>, or <span className="font-semibold">Windows on Arm</span>, see&nbsp;
+              <Link href="#" className="text-blue-500 underline">
+                Setup - Windows 11 in S mode / Windows 10 in S mode, Windows on Arm
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+
+        <p className="mb-4 text-gray-700">Click Download to start setup.</p>
+        <p className="mb-6 text-gray-700">Follow the on-screen instructions to complete the setup.</p>
+
+        {/* Download Button */}
+        <button className="w-full bg-gray-200 py-3 text-lg font-semibold text-gray-600 rounded-md shadow hover:bg-gray-300 transition">
+          <div className="flex items-center justify-center space-x-2">
+            {/* <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 3v12l-4-4H5l7 7 7-7h-3l-4 4V3z" />
+            </svg> */}
+            <Image src="/downloadicon.gif"
+            height={40}
+            width={40}
+            />
+            <span>Download</span>
+          </div>
+        </button>
+      </div>
+
+      {/* Page Top Link */}
+      <div className="w-full max-w-4xl flex justify-end mt-4">
+        <Link href="#" className="text-gray-500 text-sm underline">
+          Page top
+        </Link>
+      </div>
+    </div>
   );
 }
 
-export default Printersearch;
 
 
 

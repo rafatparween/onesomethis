@@ -402,19 +402,286 @@
 
 
 
+// "use client"; // Only if you're using Next.js
+// import { useState } from "react";
+// import {
+//   FaCog,
+//   FaFileAlt,
+//   FaDownload,
+//   FaEnvelope,
+//   FaQuestionCircle,
+// } from "react-icons/fa";
+
+// const CanonProductPage = () => {
+//   const [selectedModel, setSelectedModel] = useState("");
+//   const history = useHistory(); // For page navigation (React Router)
+
+//   // List of model numbers (example models)
+//   const modelNumbers = [
+//     "TS9030",
+//     "TS9040",
+//     "TS9050",
+//     "TS9060"
+//   ];
+
+//   // Handle model selection from dropdown
+//   const handleModelChange = (e) => {
+//     setSelectedModel(e.target.value);
+//   };
+
+//   // Handle the "Go" button click to navigate to another page
+//   const handleGoClick = () => {
+//     if (selectedModel) {
+//       // Navigate to another page, passing the model number as a URL parameter
+//       history.push(`/product/${selectedModel}`);
+//     }
+//   };
+
+//   const [isExpanded, setIsExpanded] = useState(false);
+
+//   const toggleExpand = () => setIsExpanded(!isExpanded);
+
+//   return (
+//     <div className="bg-white min-h-screen">
+//       {/* Canon Header with logo and search */}
+//       <header className="border-b py-4 bg-gray-100">
+//         <div className="container mx-auto flex justify-between items-center">
+//           <img
+//             src="https://global.canon/en/corporate/logo/img/logo_01.png"
+//             alt="Canon Logo"
+//             className="w-32"
+//           />
+
+//           <div className="relative flex items-center">
+//             <span className="mr-4 text-gray-600 text-sm">
+//               Site Usage and Cookies
+//             </span>
+//             <div className="relative flex items-center">
+//               <input
+//                 type="text"
+//                 placeholder="Enter your search term..."
+//                 className="border px-3 py-2 rounded-full w-64"
+//               />
+//               <button className="absolute right-2">
+//                 <img
+//                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM3UlvlM9Lhbds6PCpYtTsujAlI10kzGp9hw&s"
+//                   alt="Search Icon"
+//                   className="w-5 h-5"
+//                 />
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+//       </header>
+
+//       {/* Navbar Links with Icons */}
+//       <nav className="bg-white py-2">
+//         <div className="container mx-auto flex justify-between text-sm items-center">
+//           <div className="flex items-center space-x-2">
+//             <FaCog className="text-gray-600 w-5 h-5" />
+//             <a href="#" className="px-4 py-2 hover:underline">Setup</a>
+//           </div>
+//           <div className="flex items-center space-x-2">
+//             <FaFileAlt className="text-gray-600 w-5 h-5" />
+//             <a href="#" className="px-4 py-2 hover:underline">Manual</a>
+//           </div>
+//           <div className="flex items-center space-x-2">
+//             <FaDownload className="text-gray-600 w-5 h-5" />
+//             <a href="#" className="px-4 py-2 hover:underline">Software</a>
+//           </div>
+//           <div className="flex items-center space-x-2">
+//             <FaEnvelope className="text-gray-600 w-5 h-5" />
+//             <a href="#" className="px-4 py-2 hover:underline">
+//               Getting Acquainted
+//             </a>
+//           </div>
+//           <div className="flex items-center space-x-2">
+//             <FaQuestionCircle className="text-gray-600 w-5 h-5" />
+//             <a href="#" className="px-4 py-2 hover:underline">FAQ</a>
+//           </div>
+//         </div>
+//       </nav>
+
+//       {/* Colored Line Section */}
+//       <div className="container mx-auto flex space-x-4 border-b mb-6">
+//         <div className="h-2 w-full bg-yellow-500"></div>
+//         <div className="h-2 w-full bg-red-400"></div>
+//         <div className="h-2 w-full bg-blue-400"></div>
+//         <div className="h-2 w-full bg-purple-400"></div>
+//         <div className="h-2 w-full bg-green-400"></div>
+//       </div>
+
+//       <main className="container mx-auto py-6">
+//         <div className="flex items-center text-red-600 text-sm mb-4 cursor-pointer">
+//           <img src="https://ij.manual.canon/ij/webmanual/WebPortal/PTL/images/others/back_arrow.gif" alt="Back Arrow" />
+//           Return to Top
+//         </div>
+
+//         <section className="bg-white border rounded-md shadow-sm p-6">
+//           <div className="flex items-center bg-gray-200 h-[45px]">
+//             <img src="https://ij.manual.canon/ij/webmanual/WebPortal/PTL/images/others/ptl-ribbon.png" alt="Ribbon" />
+//             <h1 className="text-xl font-bold">Select Product Name</h1>
+//           </div>
+
+//           <div className="mt-2">
+//             <p className="text-sm mb-4">
+//               Search for your product name or select from the list.
+//             </p>
+//             <p className="text-sm mb-4">
+//               If the product you are looking for cannot be found, reselect your
+//               region.
+//             </p>
+//           </div>
+
+//           <div className="mb-4">
+//             <select className="border border-gray-300 px-3 py-2 rounded-md w-64">
+//               <option>U.S.A</option>
+//               <option>North America</option>
+//               <option>Europe</option>
+//             </select>
+//           </div>
+
+//           <div className="h-[179px] flex flex-col items-center bg-gray-100 w-full pt-4">
+//             <div className="w-full max-w-md px-4 flex flex-col items-center mt-[44px]">
+//               <div className="flex items-center space-x-2 w-[920px] mb-2">
+//                 <input
+//                   type="text"
+//                   placeholder="Example: TS9030"
+//                   className="border border-gray-300 px-4 py-2 rounded-md flex-grow"
+//                 />
+//                 <button className="bg-gray-500 text-white px-4 py-2 rounded-md whitespace-nowrap w-[60px]">
+//                   Go
+//                 </button>
+//               </div>
+//               <div className="flex justify-center items-center text-center">
+//                 <a
+//                   href="#"
+//                   className="text-sm text-blue-600 inline-flex items-center justify-center"
+//                 >
+//                   <img
+//                     src="https://ij.manual.canon/ij/webmanual/WebPortal/PTL/images/common/hint.png"
+//                     alt="Info"
+//                     className="w-4 h-4 mr-1"
+//                   />
+//                   Where to find your product name
+//                 </a>
+//               </div>
+//             </div>
+//           </div>
+//           <div className="p-6 w-full">
+//           <h1 className="text-lg font-semibold mb-4">CanoScan</h1>
+//           <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
+//             <button
+//               onClick={toggleExpand}
+//               className="flex items-center w-full px-4 py-2"
+//             >
+//               <div className="w-8 h-8 flex items-center justify-center border rounded-md bg-white shadow-sm">
+//                 <span className="text-xl font-semibold">
+//                   {isExpanded ? "-" : "+"}
+//                 </span>
+//               </div>
+//               <span className="font-medium ml-[15px] ">LiDE series</span>
+
+//             </button>
+//           </div>
+
+//           {isExpanded && (
+//             <div className="flex space-x-4 mt-4 ml-[104px]">
+//               <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">
+//                 LiDE 400
+//               </button>
+//               <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">
+//                 LiDE 300
+//               </button>
+//             </div>
+//           )}
+        
+//         </div>
+
+//         </section>
+
+//         {/* Toggleable Container */}
+//              </main>
+//     </div>
+//   );
+// };
+
+// export default CanonProductPage;
+
+
+
 "use client"; // Only if you're using Next.js
 import { useState } from "react";
-import {
-  FaCog,
-  FaFileAlt,
-  FaDownload,
-  FaEnvelope,
-  FaQuestionCircle,
-} from "react-icons/fa";
+import { FaCog, FaFileAlt, FaDownload, FaEnvelope, FaQuestionCircle } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 const CanonProductPage = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [selectedModel, setSelectedModel] = useState("");
+  const [filteredModels, setFilteredModels] = useState([]);
+  const router = useRouter();
 
+  const modelNumbers = [
+    "PIXMA TS9120",
+  "PIXMA TS8320",
+  "PIXMA TS6220",
+  "PIXMA TR8520",
+  "PIXMA MG3620",
+  "PIXMA G6020",
+  "PIXMA iP110",
+  "MAXIFY MB2120",
+  "MAXIFY MB2720",
+  "MAXIFY GX7020",
+  "MAXIFY GX6020",
+  "MAXIFY iB4120",
+  "imageCLASS MF743Cdw",
+  "imageCLASS MF445dw",
+  "imageCLASS MF644Cdw",
+  "imageCLASS LBP6030w",
+  "imageCLASS MF3010",
+  "imageCLASS D1620",
+  "imagePROGRAF PRO-1000",
+  "imagePROGRAF PRO-300",
+  "imagePROGRAF TM-300",
+  "imagePROGRAF TA-20",
+  "imagePROGRAF PRO-2100",
+  "SELPHY CP1300",
+  "SELPHY CP1200",
+  "SELPHY CP910",
+  "SELPHY QX10",
+  "CanoScan LiDE 300",
+  "CanoScan LiDE 400",
+  "CanoScan 9000F Mark II"
+  ];
+
+  // Filter model numbers based on input
+  const handleInputChange = (e) => {
+    const input = e.target.value;
+    setSelectedModel(input);
+    if (input) {
+      const suggestions = modelNumbers.filter((model) =>
+        model.toLowerCase().includes(input.toLowerCase())
+      );
+      setFilteredModels(suggestions);
+    } else {
+      setFilteredModels([]);
+    }
+  };
+
+  // Handle model selection from dropdown
+  const handleModelSelect = (model) => {
+    setSelectedModel(model);
+    setFilteredModels([]);
+  };
+
+  // Handle "Go" button click
+  const handleGoClick = () => {
+    if (selectedModel) {
+      // Navigate to the install page with the selected model number as a query parameter
+      router.push(`./canon/canoninstall?model=${encodeURIComponent(selectedModel)}`);
+    }
+  };
+
+  const [isExpanded, setIsExpanded] = useState(false);
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
   return (
@@ -427,25 +694,8 @@ const CanonProductPage = () => {
             alt="Canon Logo"
             className="w-32"
           />
-
           <div className="relative flex items-center">
-            <span className="mr-4 text-gray-600 text-sm">
-              Site Usage and Cookies
-            </span>
-            <div className="relative flex items-center">
-              <input
-                type="text"
-                placeholder="Enter your search term..."
-                className="border px-3 py-2 rounded-full w-64"
-              />
-              <button className="absolute right-2">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM3UlvlM9Lhbds6PCpYtTsujAlI10kzGp9hw&s"
-                  alt="Search Icon"
-                  className="w-5 h-5"
-                />
-              </button>
-            </div>
+            <span className="mr-4 text-gray-600 text-sm">Site Usage and Cookies</span>
           </div>
         </div>
       </header>
@@ -467,9 +717,7 @@ const CanonProductPage = () => {
           </div>
           <div className="flex items-center space-x-2">
             <FaEnvelope className="text-gray-600 w-5 h-5" />
-            <a href="#" className="px-4 py-2 hover:underline">
-              Getting Acquainted
-            </a>
+            <a href="#" className="px-4 py-2 hover:underline">Getting Acquainted</a>
           </div>
           <div className="flex items-center space-x-2">
             <FaQuestionCircle className="text-gray-600 w-5 h-5" />
@@ -500,18 +748,13 @@ const CanonProductPage = () => {
           </div>
 
           <div className="mt-2">
-            <p className="text-sm mb-4">
-              Search for your product name or select from the list.
-            </p>
-            <p className="text-sm mb-4">
-              If the product you are looking for cannot be found, reselect your
-              region.
-            </p>
+            <p className="text-sm mb-4">Search for your product name or select from the list.</p>
+            <p className="text-sm mb-4">If the product you are looking for cannot be found, reselect your region.</p>
           </div>
 
           <div className="mb-4">
             <select className="border border-gray-300 px-3 py-2 rounded-md w-64">
-              <option>Asia (Other)</option>
+              <option>U.S.A</option>
               <option>North America</option>
               <option>Europe</option>
             </select>
@@ -520,16 +763,40 @@ const CanonProductPage = () => {
           <div className="h-[179px] flex flex-col items-center bg-gray-100 w-full pt-4">
             <div className="w-full max-w-md px-4 flex flex-col items-center mt-[44px]">
               <div className="flex items-center space-x-2 w-[920px] mb-2">
+                {/* Input field */}
                 <input
                   type="text"
+                  value={selectedModel}
+                  onChange={handleInputChange}
                   placeholder="Example: TS9030"
                   className="border border-gray-300 px-4 py-2 rounded-md flex-grow"
                 />
-                <button className="bg-gray-500 text-white px-4 py-2 rounded-md whitespace-nowrap w-[60px]">
+                
+                {/* Go Button */}
+                <button
+                  onClick={handleGoClick}
+                  className="bg-gray-500 text-white px-4 py-2 rounded-md whitespace-nowrap w-[60px]"
+                >
                   Go
                 </button>
               </div>
-              <div className="flex justify-center items-center text-center">
+
+              {/* Model suggestions dropdown */}
+              {filteredModels.length > 0 && (
+                <ul className="border border-gray-300 bg-white w-[920px] rounded-md shadow-lg">
+                  {filteredModels.map((model, index) => (
+                    <li
+                      key={index}
+                      onClick={() => handleModelSelect(model)}
+                      className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                    >
+                      {model}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              <div className="flex justify-center items-center text-center mt-2">
                 <a
                   href="#"
                   className="text-sm text-blue-600 inline-flex items-center justify-center"
@@ -544,45 +811,126 @@ const CanonProductPage = () => {
               </div>
             </div>
           </div>
+
           <div className="p-6 w-full">
-          <h1 className="text-lg font-semibold mb-4">CanoScan</h1>
-          <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
-            <button
-              onClick={toggleExpand}
-              className="flex items-center w-full px-4 py-2"
-            >
-              <div className="w-8 h-8 flex items-center justify-center border rounded-md bg-white shadow-sm">
-                <span className="text-xl font-semibold">
-                  {isExpanded ? "-" : "+"}
-                </span>
-              </div>
-              <span className="font-medium ml-[15px] ">LiDE series</span>
-
-            </button>
-          </div>
-
-          {isExpanded && (
-            <div className="flex space-x-4 mt-4 ml-[104px]">
-              <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">
-                LiDE 400
-              </button>
-              <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">
-                LiDE 300
+            <h1 className="text-lg font-semibold mb-4">CanoScan</h1>
+            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
+              <button
+                onClick={toggleExpand}
+                className="flex items-center w-full px-4 py-2"
+              >
+                <div className="w-8 h-8 flex items-center justify-center border rounded-md bg-white shadow-sm">
+                  <span className="text-xl font-semibold">
+                    {isExpanded ? "-" : "+"}
+                  </span>
+                </div>
+                <span className="font-medium ml-[15px]">LiDE series</span>
               </button>
             </div>
-          )}
-        
-        </div>
 
+            {isExpanded && (
+              <div className="flex space-x-4 mt-4 ml-[104px]">
+                <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 400</button>
+                <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 300</button>
+              </div>
+            )}
+          </div>
+          <div className="p-6 w-full">
+            <h1 className="text-lg font-semibold mb-4">imagePROGRAF</h1>
+            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
+              <button
+                onClick={toggleExpand}
+                className="flex items-center w-full px-4 py-2"
+              >
+                <div className="w-8 h-8 flex items-center justify-center border rounded-md bg-white shadow-sm">
+                  <span className="text-xl font-semibold">
+                    {isExpanded ? "-" : "+"}
+                  </span>
+                </div>
+                <span className="font-medium ml-[15px]">LiDE series</span>
+              </button>
+            </div>
+
+            {isExpanded && (
+              <div className="flex space-x-4 mt-4 ml-[104px]">
+                <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 400</button>
+                <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 300</button>
+              </div>
+            )}
+          </div>
+          <div className="p-6 w-full">
+            <h1 className="text-lg font-semibold mb-4">MAXIFY</h1>
+            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
+              <button
+                onClick={toggleExpand}
+                className="flex items-center w-full px-4 py-2"
+              >
+                <div className="w-8 h-8 flex items-center justify-center border rounded-md bg-white shadow-sm">
+                  <span className="text-xl font-semibold">
+                    {isExpanded ? "-" : "+"}
+                  </span>
+                </div>
+                <span className="font-medium ml-[15px]">LiDE series</span>
+              </button>
+            </div>
+
+            {isExpanded && (
+              <div className="flex space-x-4 mt-4 ml-[104px]">
+                <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 400</button>
+                <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 300</button>
+              </div>
+            )}
+          </div>
+          <div className="p-6 w-full">
+            <h1 className="text-lg font-semibold mb-4">PIXUS/PIXMA</h1>
+            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
+              <button
+                onClick={toggleExpand}
+                className="flex items-center w-full px-4 py-2"
+              >
+                <div className="w-8 h-8 flex items-center justify-center border rounded-md bg-white shadow-sm">
+                  <span className="text-xl font-semibold">
+                    {isExpanded ? "-" : "+"}
+                  </span>
+                </div>
+                <span className="font-medium ml-[15px]">LiDE series</span>
+              </button>
+            </div>
+
+            {isExpanded && (
+              <div className="flex space-x-4 mt-4 ml-[104px]">
+                <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 400</button>
+                <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 300</button>
+              </div>
+            )}
+          </div>
+          <div className="p-6 w-full">
+            <h1 className="text-lg font-semibold mb-4">imageCLASS</h1>
+            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
+              <button
+                onClick={toggleExpand}
+                className="flex items-center w-full px-4 py-2"
+              >
+                <div className="w-8 h-8 flex items-center justify-center border rounded-md bg-white shadow-sm">
+                  <span className="text-xl font-semibold">
+                    {isExpanded ? "-" : "+"}
+                  </span>
+                </div>
+                <span className="font-medium ml-[15px]">LiDE series</span>
+              </button>
+            </div>
+
+            {isExpanded && (
+              <div className="flex space-x-4 mt-4 ml-[104px]">
+                <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 400</button>
+                <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 300</button>
+              </div>
+            )}
+          </div>
         </section>
-
-        {/* Toggleable Container */}
-             </main>
+      </main>
     </div>
   );
 };
 
 export default CanonProductPage;
-
-
-
