@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Help = () => {
   return (
@@ -19,8 +20,8 @@ const Help = () => {
 
           {/* Live Chat Support Box */}
           <div className="bg-white rounded-lg shadow-md p-6 mt-6 w-[443px] h-[337px]">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/14/14558.png" 
+            <Image
+              src="/chaticon.png" 
               alt="Support Agents"
               width={100}
               height={100}
@@ -39,13 +40,13 @@ const Help = () => {
         {/* Space Between Left and Right Sections */}
 
         {/* Right Side - Image */}
-        <img
-          src="https://printscart.com/assets/image/support.png" 
+        <Image
+          src="/cotgirl.jpeg" 
           alt="Support Agents"
-          width={774}
-          height={663}
+          width={500}
+          height={480}
           objectFit="cover"
-          className="mt-[53px] ml-[135px] xl:ml-[-7px]" 
+          className="mt-[53px] ml-[135px] xl:ml-[-7px] mb-[50px]" 
         />
       </div>
     </div>
@@ -53,7 +54,6 @@ const Help = () => {
 };
 
 export default Help;
-
 
 
 

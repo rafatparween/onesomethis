@@ -610,7 +610,8 @@
 
 
 
-"use client"; // Only if you're using Next.js
+"use client"; // Only if you're using Next.js\\
+import Image from "next/image";
 import { useState } from "react";
 import { FaCog, FaFileAlt, FaDownload, FaEnvelope, FaQuestionCircle } from "react-icons/fa";
 import { useRouter } from "next/navigation";
@@ -743,7 +744,12 @@ const CanonProductPage = () => {
 
         <section className="bg-white border rounded-md shadow-sm p-6">
           <div className="flex items-center bg-gray-200 h-[45px]">
-            <img src="https://ij.manual.canon/ij/webmanual/WebPortal/PTL/images/others/ptl-ribbon.png" alt="Ribbon" />
+            <Image
+            src="/redribbon.png" alt="Ribbon" 
+            height={73}
+            width={58}
+            
+            />
             <h1 className="text-xl font-bold">Select Product Name</h1>
           </div>
 

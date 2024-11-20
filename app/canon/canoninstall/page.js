@@ -194,7 +194,7 @@
 //         </div>
 //       </div>
 //       <Storepage/>
-      
+
 //     </>
 //   );
 // }
@@ -204,86 +204,388 @@
 
 
 // pages/index.j
+// "use client"
+// import Image from 'next/image';
+// import Link from 'next/link';
+// import { useState,useEffect } from 'react';
+
+// export default function Printersearch() {
+//   const [isPopupVisible, setPopupVisible] = useState(false);
+//   const [showErrorPage, setShowErrorPage] = useState(false);
+
+//   const handleClosePopup = () => {
+//     setPopupVisible(false);
+//   };
+
+//   const handleButtonClick = (e) => {
+//     e.preventDefault(); // Prevent the default link behavior (URL change)
+//     setPopupVisible(true); // Show the popup
+//   };
+
+//   useEffect(() => {
+//     if (isPopupVisible) {
+//       // Set a timer to show the error page after 15 seconds
+//       const timer = setTimeout(() => {
+//         setShowErrorPage(true); // Show error page after 15 seconds
+//         setPopupVisible(false); // Optionally hide the popup after the error
+//       }, 15000); // 15 seconds
+
+//       return () => clearTimeout(timer); // Clear the timer if the component is unmounted or state changes
+//     }
+//   }, [isPopupVisible]);
+
+//   if (showErrorPage) {
+//     // This is the error page after 15 seconds of spinner
+//     return (
+//       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-200">
+//         <div className="mb-6 flex justify-center">
+//           <Image
+//             src="/error.png"  // Make sure error.png exists in your public folder
+//             alt="Printer Error"
+//             width={892}
+//             height={632}
+//           />
+//         </div>
+//       </div>
+//     );
+//   }
+//   return (
+//     <div className={`h-[530px] ${isPopupVisible ? "blur-sm" : ""}`}>
+//     <div className="flex flex-col items-center bg-white min-h-screen p-6 text-gray-700 font-sans">
+//       {/* Canon Header */}
+//       <div className="flex flex-col items-start w-full max-w-4xl mb-6">
+//         {/* Canon Logo */}
+//         <Image
+//           src="/canonlogo.png"
+//           alt="Canon Logo"
+//           className="w-24"
+//           width={120} // Adjust as per your design
+//           height={40}
+//         />
+
+//         {/* "Return to Selection Screen" Section */}
+//         <div className="flex items-center space-x-2 mt-2">
+//           {/* Icon */}
+//           <Image
+//             src="/arrowicon.jpg" // Replace with the actual path to your icon
+//             alt="Important Icon"
+//             width={30} // Adjust icon width
+//             height={30} // Adjust icon height
+//           />
+//           {/* "Return to Selection Screen" Text */}
+//           <span className="font-bold text-[#666666] text-[16px]">
+//             Return to Selection Screen
+//           </span>
+//         </div>
+//         <div className="flex items-center bg-gray-200 h-[73px] w-[895px] mt-[10px]">
+//             <Image
+//             src="/redribbon.png" alt="Ribbon"
+//             height={70}
+//             width={69}
+//              />
+            
+//             <h1 className="text-xl font-bold">Select Product Name</h1>
+//           </div>
+//       </div>
+
+
+//       {/* Setup Section */}
+//       <div className="w-full max-w-4xl bg-white p-6 shadow-md border border-gray-300 rounded-md">
+//         <h3 className="text-[20px] font-bold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+//           Setup
+//         </h3>
+
+//         {/* Important Header Section */}
+//         <div className="flex items-center space-x-2 mb-4">
+//           {/* Icon */}
+//           <Image
+//             src="/important.gif" // Replace with the actual path to your icon
+//             alt="Important Icon"
+//             width={36}
+//             height={12}
+//           />
+//           {/* "Important" Label */}
+//           <span className="font-bold text-red-600 text-[19px]">Important</span>
+//         </div>
+
+//         {/* Important Text Section */}
+//         <div className="bg-[#FFEEEE] text-[#000000] p-4 rounded-md text-sm">
+//           <p className='text-[16px]'>
+//             If you are using <span className="font-semibold">Windows 11 in S mode</span>, <span className="font-semibold">Windows 10 in S mode</span>, or <span className="font-semibold">Windows on Arm</span>, see&nbsp;
+//             <Link href="#" className="text-[#0000CC] underline">
+//               Setup - Windows 11 in S mode / Windows 10 in S mode, Windows on Arm
+//             </Link>
+//             .
+//           </p>
+//         </div>
+
+//         {/* Instructions */}
+//         <p className="mt-4 mb-4 text-gray-700">Click Download to start setup.</p>
+//         <p className="mb-6 text-gray-700">Follow the on-screen instructions to complete the setup.</p>
+
+//         {/* Download Button */}
+//         <div className="flex justify-center">
+//           <button
+//             onClick={handleButtonClick}
+//             className="flex items-center justify-center bg-gray-200 text-lg font-semibold text-gray-700 rounded shadow hover:bg-gray-300 transition"
+//             style={{ width: '280px', height: '89px' }}
+//           >
+//             <Image
+//               src="/downloadicon.gif" // Replace with actual path to your icon
+//               height={54}
+//               width={66}
+//               alt="Download Icon"
+//             />
+//             <span className="ml-2 text-[22px] text-[#686868]">Download</span>
+//           </button>
+//           {isPopupVisible && (
+//         <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+//           <div className="bg-white w-[596px] h-[443px] rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
+//             <h2 className="text-[28px] font-semibold mb-4">Gathering device details...</h2>
+//             <svg
+//               className="animate-spin duration-[15s] h-[40px]" // Spinner rotates for 15 seconds
+//               xmlns="http://www.w3.org/2000/svg"
+//               fill="none"
+//               viewBox="0 0 24 24"
+//             >
+//               <circle
+//                 className="opacity-25"
+//                 cx="12"
+//                 cy="12"
+//                 r="10"
+//                 stroke="currentColor"
+//                 strokeWidth="4"
+//               ></circle>
+//               <path
+//                 className="opacity-75"
+//                 fill="currentColor"
+//                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+//               ></path>
+//             </svg>
+//         </div>
+//       </div>
+//           )}
+
+//       {/* Page Top Link */}
+//       {/* <div className="w-full max-w-4xl flex justify-end mt-4">
+//         <Link href="#" className="text-gray-500 text-sm underline">
+//           Page top
+//         </Link>
+//       </div> */}
+    
+   
+//   );
+// }
+
+
+"use client"
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 export default function Printersearch() {
+  const [isPopupVisible, setPopupVisible] = useState(false);
+  const [showErrorPage, setShowErrorPage] = useState(false);
+
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
+
+  const handleButtonClick = (e) => {
+    e.preventDefault(); // Prevent the default link behavior (URL change)
+    setPopupVisible(true); // Show the popup
+  };
+
+  useEffect(() => {
+    if (isPopupVisible) {
+      // Set a timer to show the error page after 15 seconds
+      const timer = setTimeout(() => {
+        setShowErrorPage(true); // Show error page after 15 seconds
+        setPopupVisible(false); // Optionally hide the popup after the error
+      }, 15000); // 15 seconds
+
+      return () => clearTimeout(timer); // Clear the timer if the component is unmounted or state changes
+    }
+  }, [isPopupVisible]);
+
+  if (showErrorPage) {
+    // This is the error page after 15 seconds of spinner
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-200">
+      
+        <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl relative" style={{ minHeight: '529px' }}>
+          {/* Blue Triangle */}
+          {/* <div className="absolute bottom-0 left-0 w-full h-24 bg-[#ED3237]"
+            style={{ clipPath: 'polygon(0 100%, 100% 100%, 0 0)' }}></div> */}
+  
+  
+  
+          {/* Content */}
+          <div className="">
+          <div className="bg-gray-100 px-6 py-4 flex justify-between items-center h-[79px]">
+            <div className="text-left">
+              <h1 className="text-lg font-semibold">Installing</h1>
+              <p className="text-gray-600 text-sm">Fatal error occurred during installation..</p>
+            </div>
+            <img
+              src="https://canonprintercatalogue.datascrip.com/assets/logo/canon_monile_logo.png" className="h-[77px] w-[115px]"
+              alt="HP Logo"
+            />
+          </div>
+            <div className="flex justify-center mb-6 mt-[40px] mb-[40px]">
+              <img
+                src="https://getdrawings.com/free-icon/error-icon-69.png" // Replace this with the actual path to the printer error image
+                alt="Printer Error"
+                width={150}
+                height={150}
+              />
+            </div>
+            <p className="text-gray-800 mb-4 text-center">
+              Fatal Error occurred Code: 0x6100004a during the software installation setup.
+              <br />
+              Please Contact Support before attempting to install it again.
+            </p>
+            <p className="font-bold text-center text-xl mb-2">PLEASE CONTACT FOR CANON PRINTER SUPPORT</p>
+            <p className="text-center text-[#ED3237] font-bold text-xl">THROUGH LIVE CHAT</p>
+          </div>
+          <div className="relative mt-8">
+            {/* Blue Triangle Background */}
+            <div className="absolute bottom-0 left-0 w-full h-24 bg-[#ED3237]" style={{ clipPath: 'polygon(0 100%, 100% 100%, 0 0)' }}></div>
+            
+        
+            <div className="relative flex items-center text-white p-4 ml-4">
+            <img
+              src="https://my.canon/media/image/2019/02/14/6b53154d2cbf4c6189795cc63b5c6126_Canon-Print-Service.png"
+              height={61}
+              width={73}
+              alt="HP Logo"
+            />
+              <span className="text-lg font-semibold">24x7 HP Assistance</span>
+            </div>
+          </div>
+  
+          
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center bg-white min-h-screen p-6 text-gray-700 font-sans">
       {/* Canon Header */}
-      <div className="flex items-center w-full max-w-4xl mb-6">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Canon_logo.svg"
+      <div className="flex flex-col items-start w-full max-w-4xl mb-6">
+        {/* Canon Logo */}
+        <Image
+          src="/canonlogo.png"
           alt="Canon Logo"
           className="w-24"
+          width={120} // Adjust as per your design
+          height={40}
         />
-        <Link href="#" className="text-red-600 text-sm font-semibold ml-4">
-          &lt; Return to Selection Screen
-        </Link>
-        <select className="ml-auto border border-gray-300 rounded-md p-1 text-sm">
-          <option>Windows</option>
-        </select>
-      </div>
 
-      {/* Title and Model Section */}
-      <div className="w-full max-w-4xl bg-gray-100 flex items-center p-4 rounded mb-4 shadow">
-        <div className="w-1 h-12 bg-red-600 mr-4"></div>
-        <div>
-          <h1 className="text-lg font-semibold text-gray-800">TS207</h1>
-          <h2 className="text-2xl font-bold text-gray-800">Setup - Windows -</h2>
+        {/* "Return to Selection Screen" Section */}
+        <div className="flex items-center space-x-2 mt-2">
+          {/* Icon */}
+          <Image
+            src="/arrowicon.jpg" // Replace with the actual path to your icon
+            alt="Important Icon"
+            width={30} // Adjust icon width
+            height={30} // Adjust icon height
+          />
+          {/* "Return to Selection Screen" Text */}
+          <span className="font-bold text-[#666666] text-[16px]">
+            Return to Selection Screen
+          </span>
+        </div>
+        <div className="flex items-center bg-gray-200 h-[73px] w-[895px] mt-[10px]">
+          <Image
+            src="/redribbon.png" alt="Ribbon"
+            height={70}
+            width={69}
+          />
+          <h1 className="text-xl font-bold">Select Product Name</h1>
         </div>
       </div>
 
       {/* Setup Section */}
       <div className="w-full max-w-4xl bg-white p-6 shadow-md border border-gray-300 rounded-md">
-        <h3 className="text-xl font-bold text-gray-900 mb-4 border-b border-gray-300 pb-2">
+        <h3 className="text-[20px] font-bold text-gray-900 mb-4 border-b border-gray-300 pb-2">
           Setup
         </h3>
 
-        {/* Important Notice Section */}
-        <div className="flex items-start space-x-2 mb-4">
-          <div className="w-1 bg-red-600"></div>
-          <div className="bg-red-100 text-red-700 p-4 rounded-md text-sm w-full">
-            <p className="font-bold text-base mb-1">Important</p>
-            <p>
-              If you are using <span className="font-semibold">Windows 11 in S mode</span>, <span className="font-semibold">Windows 10 in S mode</span>, or <span className="font-semibold">Windows on Arm</span>, see&nbsp;
-              <Link href="#" className="text-blue-500 underline">
-                Setup - Windows 11 in S mode / Windows 10 in S mode, Windows on Arm
-              </Link>
-              .
-            </p>
-          </div>
+        {/* Important Header Section */}
+        <div className="flex items-center space-x-2 mb-4">
+          {/* Icon */}
+          <Image
+            src="/important.gif" // Replace with the actual path to your icon
+            alt="Important Icon"
+            width={36}
+            height={12}
+          />
+          {/* "Important" Label */}
+          <span className="font-bold text-red-600 text-[19px]">Important</span>
         </div>
 
-        <p className="mb-4 text-gray-700">Click Download to start setup.</p>
+        {/* Important Text Section */}
+        <div className="bg-[#FFEEEE] text-[#000000] p-4 rounded-md text-sm">
+          <p className='text-[16px]'>
+            If you are using <span className="font-semibold">Windows 11 in S mode</span>, <span className="font-semibold">Windows 10 in S mode</span>, or <span className="font-semibold">Windows on Arm</span>, see&nbsp;
+            <Link href="#" className="text-[#0000CC] underline">
+              Setup - Windows 11 in S mode / Windows 10 in S mode, Windows on Arm
+            </Link>
+            .
+          </p>
+        </div>
+
+        {/* Instructions */}
+        <p className="mt-4 mb-4 text-gray-700">Click Download to start setup.</p>
         <p className="mb-6 text-gray-700">Follow the on-screen instructions to complete the setup.</p>
 
         {/* Download Button */}
-        <button className="w-full bg-gray-200 py-3 text-lg font-semibold text-gray-600 rounded-md shadow hover:bg-gray-300 transition">
-          <div className="flex items-center justify-center space-x-2">
-            {/* <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 3v12l-4-4H5l7 7 7-7h-3l-4 4V3z" />
-            </svg> */}
-            <Image src="/downloadicon.gif"
-            height={40}
-            width={40}
+        <div className="flex justify-center">
+          <button
+            onClick={handleButtonClick}
+            className="flex items-center justify-center bg-gray-200 text-lg font-semibold text-gray-700 rounded shadow hover:bg-gray-300 transition"
+            style={{ width: '280px', height: '89px' }}
+          >
+            <Image
+              src="/downloadicon.gif" // Replace with actual path to your icon
+              height={54}
+              width={66}
+              alt="Download Icon"
             />
-            <span>Download</span>
-          </div>
-        </button>
-      </div>
+            <span className="ml-2 text-[22px] text-[#686868]">Download</span>
+          </button>
+        </div>
 
-      {/* Page Top Link */}
-      <div className="w-full max-w-4xl flex justify-end mt-4">
-        <Link href="#" className="text-gray-500 text-sm underline">
-          Page top
-        </Link>
+        {/* Apply the blur effect to background when popup is visible */}
+        <div className={`fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50 ${isPopupVisible ? "" : "hidden"}`}>
+          <div className="bg-white w-[596px] h-[443px] rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
+            <h2 className="text-[28px] font-semibold mb-4">Gathering device details...</h2>
+            <svg
+              className="animate-spin duration-[15s] h-[40px]" // Spinner rotates for 15 seconds
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+              ></path>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
-
-
-
-
 

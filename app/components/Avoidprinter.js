@@ -1,11 +1,11 @@
-
+import Image from "next/image";
 export default function Avoidprinter() {
   return (
     <div className="flex justify-between items-center px-6 py-8">
       {/* Left Image Section */}
       <div className="w-1/2">
-        <img
-          src="https://printscart.com/assets/image/pocket.png" // Use a placeholder image or the actual image path here
+        <Image
+          src="/maintain.jpg" // Use a placeholder image or the actual image path here
           alt="Pocket Empty"
           width={598} 
           height={479} 
