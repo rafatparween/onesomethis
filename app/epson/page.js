@@ -271,116 +271,238 @@
 
 
 
-"use client";
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+// "use client";
+// import { useRouter } from 'next/navigation';
+// import React, { useState } from 'react';
 
-function Home() {
-  const router = useRouter();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filteredModels, setFilteredModels] = useState([]);
+// function Home() {
+//   const router = useRouter();
+//   const [searchTerm, setSearchTerm] = useState('');
+//   const [filteredModels, setFilteredModels] = useState([]);
 
-  const printerModels = [
-    'Epson EcoTank ET-2720 All-in-One Printer',
-'Epson WorkForce WF-4830 All-in-One Printer',
-'Epson Expression Premium XP-7100 All-in-One Printer',
-'Epson SureColor P400 Wide-Format Printer',
-'Epson EcoTank ET-4760 All-in-One Printer',
-'Epson WorkForce WF-7820 Wide-Format All-in-One Printer',
-'Epson Expression Home XP-4100 All-in-One Printer',
-'Epson EcoTank ET-15000 Wide-Format All-in-One Printer',
-'Epson WorkForce WF-7710 Wide-Format All-in-One Printer',
-'Epson SureColor P600 Wide-Format Printer',
-  ];
+//   const printerModels = [
+//     'Epson EcoTank ET-2720 All-in-One Printer',
+// 'Epson WorkForce WF-4830 All-in-One Printer',
+// 'Epson Expression Premium XP-7100 All-in-One Printer',
+// 'Epson SureColor P400 Wide-Format Printer',
+// 'Epson EcoTank ET-4760 All-in-One Printer',
+// 'Epson WorkForce WF-7820 Wide-Format All-in-One Printer',
+// 'Epson Expression Home XP-4100 All-in-One Printer',
+// 'Epson EcoTank ET-15000 Wide-Format All-in-One Printer',
+// 'Epson WorkForce WF-7710 Wide-Format All-in-One Printer',
+// 'Epson SureColor P600 Wide-Format Printer',
+//   ];
 
-  const handleSearchChange = (event) => {
-    const value = event.target.value;
-    setSearchTerm(value);
-    if (value) {
-      const filtered = printerModels.filter((model) =>
-        model.toLowerCase().includes(value.toLowerCase())
-      );
-      setFilteredModels(filtered);
-    } else {
-      setFilteredModels([]);
-    }
-  };
+//   const handleSearchChange = (event) => {
+//     const value = event.target.value;
+//     setSearchTerm(value);
+//     if (value) {
+//       const filtered = printerModels.filter((model) =>
+//         model.toLowerCase().includes(value.toLowerCase())
+//       );
+//       setFilteredModels(filtered);
+//     } else {
+//       setFilteredModels([]);
+//     }
+//   };
 
-  const handleModelClick = (model) => {
-    setSearchTerm(model); // Set the input value to the selected model
-    setFilteredModels([]); // Clear the dropdown after selection
-  };
+//   const handleModelClick = (model) => {
+//     setSearchTerm(model); // Set the input value to the selected model
+//     setFilteredModels([]); // Clear the dropdown after selection
+//   };
 
-  const handleSearchClick = () => {
-    if (searchTerm) {
-      const searchPath = searchTerm.replace(/\s+/g, '-').replace(/\//g, '-');
-      router.push(`./epson/epsoninstall?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
-    } else {
-      alert("Please select or enter a model before searching."); // Alert if the input is empty
-    }
-  };
+//   const handleSearchClick = () => {
+//     if (searchTerm) {
+//       const searchPath = searchTerm.replace(/\s+/g, '-').replace(/\//g, '-');
+//       router.push(`./epson/epsoninstall?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
+//     } else {
+//       alert("Please select or enter a model before searching."); // Alert if the input is empty
+//     }
+//   };
 
+//   return (
+//     <div className="h-[409px] mt-[80px] bg-[#10218B]">
+//       <section 
+//         className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[409px]"
+//         // style={{
+//         //   backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
+//         // }}
+//       >
+//         <div className="absolute inset-0 opacity-80"></div>
+//         <div className="relative z-10 text-white 2xl:mt-[142px] xl:mt-[116px] 2xl:ml-[-825px] xl:ml-[-567px] ">
+//           <h1 className="text-4xl font-hp-simplified text-[44px] 2xl:ml-[-224px] xl:ml-[-309px]">Set up Epson Printer</h1>
+//           <p className="mt-[35px] text-[27px] text-[24px] xl:ml-[324px] 2xl:ml-[344px]">Enter your printer name and model number to get the right drivers for your printer.</p>
+
+//           {/* Input Section */}
+//           <div className="mt-8 flex space-x-4 justify-center">
+//             <input
+//               type="text"
+//               value={searchTerm}
+//               onChange={handleSearchChange}
+//               placeholder="Enter your product name here. For example: 'OfficeJet 9010'"
+//               className="px-4 py-2 w-full max-w-lg rounded-md text-gray-700 2xl:ml-[22px] xl:ml-[-19px]"
+//             />
+//             <button 
+//               onClick={handleSearchClick} // Use the search click function  
+//               className="bg-gray-300 text-gray-900 rounded-md w-[100px] h-[48px] 2xl:ml-[40px] "
+//               style={{ marginLeft: '41px' }}
+//             >
+//               Search
+//             </button>
+//           </div>
+
+//           {/* Dropdown for filtered models */}
+//           {filteredModels.length > 0 && (
+//             <ul className="absolute left-0 mt-1 w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg z-10 2xl:ml-[344px] xl:ml-[311px] text-black">
+//               {filteredModels.map((model) => (
+//                 <li
+//                   key={model}
+//                   onClick={() => handleModelClick(model)} // Set model on click
+//                   className="cursor-pointer p-2 hover:bg-gray-100"
+//                 >
+//                   {model}
+//                 </li>
+//               ))}
+//             </ul>
+//           )}
+//         </div>
+
+//         <div className="relative z-10 mt-12 ml-auto">
+//           <img
+//             src="https://onesomethis.online/assets/image/conn.png"  
+//             alt="Printer setup devices"
+//             width={450}
+//             height={296}
+//             className="object-contain 2xl:mr-[436px] xl:mr-[202px] 2xl:mr-[232px]"
+//           />
+//         </div>
+//       </section>
+//       <h1 className="text-[18px] w-[832px] h-[51px] ml-[369px] mt-[100px]">Install Smart driver and drivers on each mobile device or computer that you want to print from. Add the printer on the new device.</h1>
+//       <h1 className="mt-[30px] ml-[369px]">Need additional help with set-up? Visit <span className="text-[#007DBA]">Support</span></h1>
+//     </div>
+//   );
+// }
+
+// export default Home;
+
+
+
+export default function PrinterSupport() {
   return (
-    <div className="h-[409px] mt-[80px] bg-[#10218B]">
-      <section 
-        className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[409px]"
-        // style={{
-        //   backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
-        // }}
+    <div className="bg-gray-100 min-h-screen">
+      {/* Header Slider Section */}
+      <header
+        className="bg-gray-800 text-white flex items-center justify-between px-6 lg:px-16"
+        style={{ height: "273px" }}
       >
-        <div className="absolute inset-0 opacity-80"></div>
-        <div className="relative z-10 text-white 2xl:mt-[142px] xl:mt-[116px] 2xl:ml-[-825px] xl:ml-[-567px] ">
-          <h1 className="text-4xl font-hp-simplified text-[44px] 2xl:ml-[-224px] xl:ml-[-309px]">Set up Epson Printer</h1>
-          <p className="mt-[35px] text-[27px] text-[24px] xl:ml-[324px] 2xl:ml-[344px]">Enter your printer name and model number to get the right drivers for your printer.</p>
-
-          {/* Input Section */}
-          <div className="mt-8 flex space-x-4 justify-center">
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={handleSearchChange}
-              placeholder="Enter your product name here. For example: 'OfficeJet 9010'"
-              className="px-4 py-2 w-full max-w-lg rounded-md text-gray-700 2xl:ml-[22px] xl:ml-[-19px]"
-            />
-            <button 
-              onClick={handleSearchClick} // Use the search click function  
-              className="bg-gray-300 text-gray-900 rounded-md w-[100px] h-[48px] 2xl:ml-[40px] "
-              style={{ marginLeft: '41px' }}
-            >
-              Search
-            </button>
-          </div>
-
-          {/* Dropdown for filtered models */}
-          {filteredModels.length > 0 && (
-            <ul className="absolute left-0 mt-1 w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg z-10 2xl:ml-[344px] xl:ml-[311px] text-black">
-              {filteredModels.map((model) => (
-                <li
-                  key={model}
-                  onClick={() => handleModelClick(model)} // Set model on click
-                  className="cursor-pointer p-2 hover:bg-gray-100"
-                >
-                  {model}
-                </li>
-              ))}
-            </ul>
-          )}
+        {/* Text Section */}
+        <div className="max-w-lg">
+          <h1 className="text-4xl font-bold">Printer Support</h1>
+          <p className="text-lg mt-2">Find Support for your Epson Printer</p>
         </div>
-
-        <div className="relative z-10 mt-12 ml-auto">
+        {/* Image Section */}
+        <div>
           <img
-            src="https://onesomethis.online/assets/image/conn.png"  
-            alt="Printer setup devices"
-            width={450}
-            height={296}
-            className="object-contain 2xl:mr-[436px] xl:mr-[202px] 2xl:mr-[232px]"
+            src="/images/printer-banner.png" // Replace with your image path
+            alt="Printer"
+            className="w-auto h-full"
           />
         </div>
+      </header>
+
+      {/* Search Section */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-16 mt-6">
+        <h2 className="text-xl font-semibold">Search By Product Name</h2>
+        <div className="flex items-center border rounded-md bg-white shadow-md p-4 mt-3">
+          {/* Search Icon */}
+          <span className="text-gray-500 mr-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-4.35-4.35m1.6-5.55a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z"
+              />
+            </svg>
+          </span>
+          {/* Search Input */}
+          <input
+            type="text"
+            placeholder="Enter Product Name"
+            className="flex-grow border-none outline-none text-gray-600"
+          />
+          <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
+            Search
+          </button>
+        </div>
+        <p className="text-gray-500 mt-2">
+          Example: ET-2800, WorkForce ES-500W, Home Cinema 3200
+        </p>
       </section>
-      <h1 className="text-[18px] w-[832px] h-[51px] ml-[369px] mt-[100px]">Install Smart driver and drivers on each mobile device or computer that you want to print from. Add the printer on the new device.</h1>
-      <h1 className="mt-[30px] ml-[369px]">Need additional help with set-up? Visit <span className="text-[#007DBA]">Support</span></h1>
+
+      {/* Printer Types */}
+      <section
+        className="mt-8 px-6 lg:px-16 flex items-center justify-between"
+        style={{ backgroundColor: "#005eb8", height: "42px" }}
+      >
+        <h2 className="text-white text-lg font-semibold">Printer Types</h2>
+      </section>
+
+      {/* Printer Types Cards */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-16 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          {/* All-In-Ones */}
+          <div className="border rounded-md bg-white p-4 text-center shadow-md">
+            <img
+              src="/images/all-in-ones.png" // Add your image path
+              alt="All-In-Ones"
+              className="mx-auto mb-4 w-full max-w-[150px]"
+            />
+            <p className="font-semibold text-lg">All-In-Ones</p>
+          </div>
+
+          {/* Single Function Inkjet Printers */}
+          <div className="border rounded-md bg-white p-4 text-center shadow-md">
+            <img
+              src="/images/single-function.png" // Add your image path
+              alt="Single Function Inkjet Printers"
+              className="mx-auto mb-4 w-full max-w-[150px]"
+            />
+            <p className="font-semibold text-lg">
+              Single Function Inkjet Printers
+            </p>
+          </div>
+
+          {/* Professional Imaging Printers */}
+          <div className="border rounded-md bg-white p-4 text-center shadow-md">
+            <img
+              src="/images/professional-imaging.png" // Add your image path
+              alt="Professional Imaging Printers"
+              className="mx-auto mb-4 w-full max-w-[150px]"
+            />
+            <p className="font-semibold text-lg">
+              Professional Imaging Printers
+            </p>
+          </div>
+
+          {/* Label Printers */}
+          <div className="border rounded-md bg-white p-4 text-center shadow-md">
+            <img
+              src="/images/label-printers.png" // Add your image path
+              alt="Label Printers"
+              className="mx-auto mb-4 w-full max-w-[150px]"
+            />
+            <p className="font-semibold text-lg">Label Printers</p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
 
-export default Home;
