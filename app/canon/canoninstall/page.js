@@ -558,11 +558,11 @@ export default function Printersearch() {
           </button>
         </div>
 
-        {/* Apply the blur effect to background when popup is visible */}
-        <div className={`fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50 ${isPopupVisible ? "" : "hidden"}`}>
+        {isPopupVisible && (
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
           <div className="bg-white w-[596px] h-[443px] rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
             <h2 className="text-[28px] font-semibold mb-4">Gathering device details...</h2>
-            <svg
+            {/* <svg
               className="animate-spin duration-[15s] h-[40px]" // Spinner rotates for 15 seconds
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -580,12 +580,59 @@ export default function Printersearch() {
                 className="opacity-75"
                 fill="currentColor"
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-              ></path>
-            </svg>
+              ></path> */}
+            {/* </svg> */}
+
+            <div className="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full text-center">
+        {/* Top Section: Icons and Animated Progress Bar */}
+        <div className="flex items-center justify-between">
+          {/* Left Icon */}
+          <div className="flex-shrink-0">
+            <Image
+              src="/hpsmaart.png" // Replace with your actual path
+              alt="HP Smart"
+              width={100}
+              height={100}
+            />
+          </div>
+
+          {/* Animated Progress Bar */}
+          <div className="w-[100px] h-[23px] mx-4">
+            <div className="relative w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+              <div
+                className="absolute inset-0 h-full animate-progress"
+                style={{
+                  background: "linear-gradient(to right, #007dbd, #007dbd 80%, #ffffff 20%)",
+                }}
+              ></div>
+            </div>
+          </div>
+
+          {/* Right Icon */}
+          <div className="flex-shrink-0">
+            <Image
+              src="/blackprinter.gif" // Replace with your actual path
+              alt="Printer"
+              width={131}
+              height={131}
+            />
           </div>
         </div>
+
+        {/* Bottom Text */}
+        <p className="mt-6 text-[#212529] text-[21px] font-bold">
+          Please wait... Driver and software installing
+        </p>
+      </div>
+          </div>
+        </div>
+      )}
+          
       </div>
     </div>
   );
 }
+
+
+
 
