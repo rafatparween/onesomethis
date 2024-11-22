@@ -261,7 +261,7 @@ function Printersearch() {
         </div>
           <div className="flex justify-center mb-6 mt-[40px] mb-[40px]">
             <img
-              src="https://static-00.iconduck.com/assets.00/printer-error-icon-1024x930-tb198nrm.png" // Replace this with the actual path to the printer error image
+              src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/printer_error.png" // Replace this with the actual path to the printer error image
               alt="Printer Error"
               width={150}
               height={150}
@@ -299,7 +299,22 @@ function Printersearch() {
 
   return (
     <>
-      <NavbarSection/>
+      <header className="bg-white text-blue-900">
+        <div className="container mx-auto flex justify-between items-center py-4 px-6">
+          <h1 className="text-xl font-bold">Brother</h1>
+          <nav className="text-sm space-x-4">
+            <a href="#" className="hover:underline">
+              Contact Us
+            </a>
+            <a href="#" className="hover:underline">
+              Product Registration
+            </a>
+            <a href="#" className="hover:underline">
+              Visit www.brother-usa.com
+            </a>
+          </nav>
+        </div>
+      </header>
       <div className={`h-[530px] ${isPopupVisible ? "blur-sm" : ""}`}>
         <section
           className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[530px]"

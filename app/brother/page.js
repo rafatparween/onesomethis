@@ -394,6 +394,8 @@
 "use client"
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Middle from '../components/Middle';
+import FooterSection from '../components/FooterSection';
 
 export default function ManualsPage() {
   const router = useRouter();
@@ -470,6 +472,7 @@ export default function ManualsPage() {
   ];
 
   return (
+    <>
     <div className="bg-gray-50 min-h-screen">
       <header className="bg-blue-900 text-white">
         <div className="container mx-auto flex justify-between items-center py-4 px-6">
@@ -550,5 +553,10 @@ export default function ManualsPage() {
         </section>
       </main>
     </div>
+    <div >
+      <Middle/>
+    </div>
+    <FooterSection/>
+    </>
   );
 }
