@@ -104,7 +104,7 @@
 //               >
 //                 Search
 //               </button>
-              
+
 //               {filteredModels.length > 0 && (
 //                 <ul className="absolute left-0 mt-1 w-full max-w-md bg-white border border-gray-300 rounded-lg shadow-lg z-10">
 //                   {filteredModels.map((model) => (
@@ -139,7 +139,7 @@
 //               width={430}
 //               className="max-w-lg  mr-[-405px] object-cover"
 //             />
-            
+
 //           </div>
 //         </div>
 //       </div>
@@ -385,124 +385,433 @@
 
 // export default Home;
 
+// "use client"
+// import Image from "next/image";
+// import NavbarSection from "../components/NavbarSection";
+// import Middle from "../components/Middle";
+// import FooterSection from "../components/FooterSection";
+
+// export default function Home() {
+//     const router = useRouter();
+//   const [searchTerm, setSearchTerm] = useState('');
+//   const [filteredModels, setFilteredModels] = useState([]);
+
+//   const printerModels = [
+//     'Epson EcoTank ET-2720 All-in-One Printer',
+// 'Epson WorkForce WF-4830 All-in-One Printer',
+// 'Epson Expression Premium XP-7100 All-in-One Printer',
+// 'Epson SureColor P400 Wide-Format Printer',
+// 'Epson EcoTank ET-4760 All-in-One Printer',
+// 'Epson WorkForce WF-7820 Wide-Format All-in-One Printer',
+// 'Epson Expression Home XP-4100 All-in-One Printer',
+// 'Epson EcoTank ET-15000 Wide-Format All-in-One Printer',
+// 'Epson WorkForce WF-7710 Wide-Format All-in-One Printer',
+// 'Epson SureColor P600 Wide-Format Printer',
+//   ];
+//   const handleSearchChange = (event) => {
+//     const value = event.target.value;
+//     setSearchTerm(value);
+//     if (value) {
+//       const filtered = printerModels.filter((model) =>
+//         model.toLowerCase().includes(value.toLowerCase())
+//       );
+//       setFilteredModels(filtered);
+//     } else {
+//       setFilteredModels([]);
+//     }
+//   };
+
+//   const handleModelClick = (model) => {
+//     setSearchTerm(model); // Set the input value to the selected model
+//     setFilteredModels([]); // Clear the dropdown after selection
+//   };
+
+//   const handleSearchClick = () => {
+//     if (searchTerm) {
+//       const searchPath = searchTerm.replace(/\s+/g, '-').replace(/\//g, '-');
+//       router.push(`./epson/epsoninstall?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
+//     } else {
+//       alert("Please select or enter a model before searching."); // Alert if the input is empty
+//     }
+//   };
+
+//     return (
+//         <>
+//             <NavbarSection />
+//             <div className="min-h-screen bg-gray-100">
+//                 {/* Header Section */}
+//                 <div className="bg-gray-800 text-white py-8">
+//                     <div className="container mx-auto px-4 flex justify-between items-center">
+//                         <div>
+//                             <h1 className="text-[46px] font-semibold">Printer Support</h1>
+//                             <p className="text-lg mt-2">Find Support for your Epson Printer</p>
+//                         </div>
+//                         <div>
+//                             <Image
+//                                 src="/banner.png" // Replace with your image path
+//                                 alt="Printer"
+//                                 width={600}
+//                                 height={300}
+//                                 className="rounded"
+//                             />
+//                         </div>
+//                     </div>
+//                 </div>
+
+//                 {/* Search Section */}
+//                 <div className="container mx-auto px-4 py-8">
+//                     <h2 className="text-[29px] font-bold">Search By Product Name</h2>
+//                     <p className="text-[14px] text-gray-600 mt-2">
+//                         Example: ET-2800, WorkForce ES-500W, Home Cinema 3200
+//                     </p>
+//                     <div className="mt-4 flex">
+//                         <input
+//                             type="text"
+//                             value={searchTerm}
+//                             onChange={handleSearchChange}
+//                             placeholder="Enter Product Name"
+//                             className="w-full border border-gray-400 px-4 py-2 rounded-l-md"
+//                         />
+//                         <button 
+//                             onClick={handleSearchClick}
+//                             className="bg-[#003399] text-white px-6 py-2 rounded-r-md hover:bg-blue-700 text-[16px] h-[45px] w-[150px]">
+//                             Search
+//                         </button>
+//                     </div>
+//                 </div>
+
+//                 {/* Printer Types Section */}
+//                 <div className="bg-white py-8">
+//                     <div className="container mx-auto px-4">
+//                         <div className="h-[42px] w-full bg-[#003399] flex items-center px-4">
+//                             <h2 className="text-lg font-bold text-white">Printer Types</h2>
+//                         </div>
+//                         <div className="grid grid-cols-4 gap-6 mt-6">
+//                             {/* First Row of Cards */}
+//                             <div className="flex flex-col items-center">
+//                                 <div className="h-[150px] w-[200px] flex items-center justify-center">
+//                                     <Image
+//                                         src="/epsonh.png" // Replace with your image path
+//                                         alt="All-In-Ones"
+//                                         width={200}
+//                                         height={150}
+//                                     />
+//                                 </div>
+//                                 <p className="mt-4 text-blue-600 font-medium">All-In-Ones</p>
+//                             </div>
+//                             <div className="flex flex-col items-center">
+//                                 <div className="h-[150px] w-[200px] flex items-center justify-center">
+//                                     <Image
+//                                         src="/epsonb.png" // Replace with your image path
+//                                         alt="Single Function Inkjet Printers"
+//                                         width={200}
+//                                         height={150}
+//                                     />
+//                                 </div>
+//                                 <p className="mt-4 text-blue-600 font-medium">Single Function Inkjet Printers</p>
+//                             </div>
+//                             <div className="flex flex-col items-center">
+//                                 <div className="h-[150px] w-[200px] flex items-center justify-center">
+//                                     <Image
+//                                         src="/epsonc.png" // Replace with your image path
+//                                         alt="Professional Imaging Printers"
+//                                         width={200}
+//                                         height={150}
+//                                     />
+//                                 </div>
+//                                 <p className="mt-4 text-blue-600 font-medium">Professional Imaging Printers</p>
+//                             </div>
+//                             <div className="flex flex-col items-center">
+//                                 <div className="h-[150px] w-[200px] flex items-center justify-center">
+//                                     <Image
+//                                         src="/epsond.png" // Replace with your image path
+//                                         alt="Label Printers"
+//                                         width={200}
+//                                         height={150}
+//                                     />
+//                                 </div>
+//                                 <p className="mt-4 text-blue-600 font-medium">Label Printers</p>
+//                             </div>
+//                         </div>
+
+//                         {/* Second Row of Cards */}
+//                         <div className="grid grid-cols-4 gap-6 mt-6">
+//                             <div className="flex flex-col items-center">
+//                                 <div className="h-[150px] w-[200px] flex items-center justify-center">
+//                                     <Image
+//                                         src="/epsone.png" // Replace with your image path
+//                                         alt="All-In-Ones"
+//                                         width={200}
+//                                         height={150}
+//                                     />
+//                                 </div>
+//                                 <p className="mt-4 text-blue-600 font-medium">All-In-Ones</p>
+//                             </div>
+//                             <div className="flex flex-col items-center">
+//                                 <div className="h-[150px] w-[200px] flex items-center justify-center">
+//                                     <Image
+//                                         src="/epsonf.png" // Replace with your image path
+//                                         alt="Single Function Inkjet Printers"
+//                                         width={200}
+//                                         height={150}
+//                                     />
+//                                 </div>
+//                                 <p className="mt-4 text-blue-600 font-medium">Single Function Inkjet Printers</p>
+//                             </div>
+//                             <div className="flex flex-col items-center">
+//                                 <div className="h-[150px] w-[200px] flex items-center justify-center">
+//                                     <Image
+//                                         src="/epsong.png" // Replace with your image path
+//                                         alt="Professional Imaging Printers"
+//                                         width={200}
+//                                         height={150}
+//                                     />
+//                                 </div>
+//                                 <p className="mt-4 text-blue-600 font-medium">Professional Imaging Printers</p>
+//                             </div>
+//                             <div className="flex flex-col items-center">
+//                                 <div className="h-[150px] w-[200px] flex items-center justify-center">
+//                                     <Image
+//                                         src="/epsoni.png" // Replace with your image path
+//                                         alt="Label Printers"
+//                                         width={200}
+//                                         height={150}
+//                                     />
+//                                 </div>
+//                                 <p className="mt-4 text-blue-600 font-medium">Label Printers</p>
+//                             </div>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//             <Middle/>
+//             <FooterSection/>
+//         </>
+//     );
+// }
 
 
-export default function PrinterSupport() {
+
+"use client"
+import { useState } from 'react'; // Import useState from React
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import NavbarSection from "../components/NavbarSection";
+import Middle from "../components/Middle";
+import FooterSection from "../components/FooterSection";
+
+export default function Home() {
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredModels, setFilteredModels] = useState([]);
+
+  const printerModels = [
+    'Epson EcoTank ET-2720 All-in-One Printer',
+    'Epson WorkForce WF-4830 All-in-One Printer',
+    'Epson Expression Premium XP-7100 All-in-One Printer',
+    'Epson SureColor P400 Wide-Format Printer',
+    'Epson EcoTank ET-4760 All-in-One Printer',
+    'Epson WorkForce WF-7820 Wide-Format All-in-One Printer',
+    'Epson Expression Home XP-4100 All-in-One Printer',
+    'Epson EcoTank ET-15000 Wide-Format All-in-One Printer',
+    'Epson WorkForce WF-7710 Wide-Format All-in-One Printer',
+    'Epson SureColor P600 Wide-Format Printer',
+  ];
+
+  const handleSearchChange = (event) => {
+    const value = event.target.value;
+    setSearchTerm(value);
+    if (value) {
+      const filtered = printerModels.filter((model) =>
+        model.toLowerCase().includes(value.toLowerCase())
+      );
+      setFilteredModels(filtered);
+    } else {
+      setFilteredModels([]);
+    }
+  };
+
+  const handleModelClick = (model) => {
+    setSearchTerm(model); // Set the input value to the selected model
+    setFilteredModels([]); // Clear the dropdown after selection
+  };
+
+  const handleSearchClick = () => {
+    if (searchTerm) {
+      const searchPath = searchTerm.replace(/\s+/g, '-').replace(/\//g, '-'); // Replace spaces and slashes
+      router.push(`/epson/epsoninstall?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
+    } else {
+      alert("Please select or enter a model before searching."); // Alert if the input is empty
+    }
+  };
+
   return (
-    <div className="bg-gray-100 min-h-screen">
-      {/* Header Slider Section */}
-      <header
-        className="bg-gray-800 text-white flex items-center justify-between px-6 lg:px-16"
-        style={{ height: "273px" }}
-      >
-        {/* Text Section */}
-        <div className="max-w-lg">
-          <h1 className="text-4xl font-bold">Printer Support</h1>
-          <p className="text-lg mt-2">Find Support for your Epson Printer</p>
-        </div>
-        {/* Image Section */}
-        <div>
-          <img
-            src="/images/printer-banner.png" // Replace with your image path
-            alt="Printer"
-            className="w-auto h-full"
-          />
-        </div>
-      </header>
-
-      {/* Search Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-16 mt-6">
-        <h2 className="text-xl font-semibold">Search By Product Name</h2>
-        <div className="flex items-center border rounded-md bg-white shadow-md p-4 mt-3">
-          {/* Search Icon */}
-          <span className="text-gray-500 mr-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-4.35-4.35m1.6-5.55a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z"
+    <>
+      <NavbarSection />
+      <div className="min-h-screen bg-gray-100">
+        {/* Header Section */}
+        <div className="bg-gray-800 text-white py-8">
+          <div className="container mx-auto px-4 flex justify-between items-center">
+            <div>
+              <h1 className="text-[46px] font-semibold">Printer Support</h1>
+              <p className="text-lg mt-2">Find Support for your Epson Printer</p>
+            </div>
+            <div>
+              <Image
+                src="/banner.png" // Replace with your image path
+                alt="Printer"
+                width={600}
+                height={300}
+                className="rounded"
               />
-            </svg>
-          </span>
-          {/* Search Input */}
-          <input
-            type="text"
-            placeholder="Enter Product Name"
-            className="flex-grow border-none outline-none text-gray-600"
-          />
-          <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">
-            Search
-          </button>
-        </div>
-        <p className="text-gray-500 mt-2">
-          Example: ET-2800, WorkForce ES-500W, Home Cinema 3200
-        </p>
-      </section>
-
-      {/* Printer Types */}
-      <section
-        className="mt-8 px-6 lg:px-16 flex items-center justify-between"
-        style={{ backgroundColor: "#005eb8", height: "42px" }}
-      >
-        <h2 className="text-white text-lg font-semibold">Printer Types</h2>
-      </section>
-
-      {/* Printer Types Cards */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-16 mt-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {/* All-In-Ones */}
-          <div className="border rounded-md bg-white p-4 text-center shadow-md">
-            <img
-              src="/images/all-in-ones.png" // Add your image path
-              alt="All-In-Ones"
-              className="mx-auto mb-4 w-full max-w-[150px]"
-            />
-            <p className="font-semibold text-lg">All-In-Ones</p>
-          </div>
-
-          {/* Single Function Inkjet Printers */}
-          <div className="border rounded-md bg-white p-4 text-center shadow-md">
-            <img
-              src="/images/single-function.png" // Add your image path
-              alt="Single Function Inkjet Printers"
-              className="mx-auto mb-4 w-full max-w-[150px]"
-            />
-            <p className="font-semibold text-lg">
-              Single Function Inkjet Printers
-            </p>
-          </div>
-
-          {/* Professional Imaging Printers */}
-          <div className="border rounded-md bg-white p-4 text-center shadow-md">
-            <img
-              src="/images/professional-imaging.png" // Add your image path
-              alt="Professional Imaging Printers"
-              className="mx-auto mb-4 w-full max-w-[150px]"
-            />
-            <p className="font-semibold text-lg">
-              Professional Imaging Printers
-            </p>
-          </div>
-
-          {/* Label Printers */}
-          <div className="border rounded-md bg-white p-4 text-center shadow-md">
-            <img
-              src="/images/label-printers.png" // Add your image path
-              alt="Label Printers"
-              className="mx-auto mb-4 w-full max-w-[150px]"
-            />
-            <p className="font-semibold text-lg">Label Printers</p>
+            </div>
           </div>
         </div>
-      </section>
-    </div>
+
+        {/* Search Section */}
+        <div className="container mx-auto px-4 py-8">
+          <h2 className="text-[29px] font-bold">Search By Product Name</h2>
+          <p className="text-[14px] text-gray-600 mt-2">
+            Example: ET-2800, WorkForce ES-500W, Home Cinema 3200
+          </p>
+          <div className="mt-4 flex">
+            <input
+              type="text"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              placeholder="Enter Product Name"
+              className="w-full border border-gray-400 px-4 py-2 rounded-l-md"
+            />
+            <button
+              onClick={handleSearchClick}
+              className="bg-[#003399] text-white px-6 py-2 rounded-r-md hover:bg-blue-700 text-[16px] h-[45px] w-[150px]"
+            >
+              Search
+            </button>
+          </div>
+          {filteredModels.length > 0 && (
+            <div className="mt-2 bg-white p-4 shadow-md rounded-md">
+              <ul>
+                {filteredModels.map((model, index) => (
+                  <li
+                    key={index}
+                    className="cursor-pointer hover:bg-gray-200 px-2 py-1"
+                    onClick={() => handleModelClick(model)}
+                  >
+                    {model}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        {/* Printer Types Section */}
+        <div className="bg-white py-8">
+          <div className="container mx-auto px-4">
+            <div className="h-[42px] w-full bg-[#003399] flex items-center px-4">
+              <h2 className="text-lg font-bold text-white">Printer Types</h2>
+            </div>
+            <div className="grid grid-cols-4 gap-6 mt-6">
+              {/* First Row of Cards */}
+              <div className="flex flex-col items-center">
+                <div className="h-[150px] w-[200px] flex items-center justify-center">
+                  <Image
+                    src="/epsonh.png" // Replace with your image path
+                    alt="All-In-Ones"
+                    width={200}
+                    height={150}
+                  />
+                </div>
+                <p className="mt-4 text-blue-600 font-medium">All-In-Ones</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="h-[150px] w-[200px] flex items-center justify-center">
+                  <Image
+                    src="/epsonb.png" // Replace with your image path
+                    alt="Single Function Inkjet Printers"
+                    width={200}
+                    height={150}
+                  />
+                </div>
+                <p className="mt-4 text-blue-600 font-medium">Single Function Inkjet Printers</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="h-[150px] w-[200px] flex items-center justify-center">
+                  <Image
+                    src="/epsonc.png" // Replace with your image path
+                    alt="Professional Imaging Printers"
+                    width={200}
+                    height={150}
+                  />
+                </div>
+                <p className="mt-4 text-blue-600 font-medium">Professional Imaging Printers</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="h-[150px] w-[200px] flex items-center justify-center">
+                  <Image
+                    src="/epsond.png" // Replace with your image path
+                    alt="Label Printers"
+                    width={200}
+                    height={150}
+                  />
+                </div>
+                <p className="mt-4 text-blue-600 font-medium">Label Printers</p>
+              </div>
+            </div>
+
+            {/* Second Row of Cards */}
+            <div className="grid grid-cols-4 gap-6 mt-6">
+              <div className="flex flex-col items-center">
+                <div className="h-[150px] w-[200px] flex items-center justify-center">
+                  <Image
+                    src="/epsone.png" // Replace with your image path
+                    alt="All-In-Ones"
+                    width={200}
+                    height={150}
+                  />
+                </div>
+                <p className="mt-4 text-blue-600 font-medium">Impact Printers</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="h-[150px] w-[200px] flex items-center justify-center">
+                  <Image
+                    src="/epsonf.png" // Replace with your image path
+                    alt="Single Function Inkjet Printers"
+                    width={200}
+                    height={150}
+                  />
+                </div>
+                <p className="mt-4 text-blue-600 font-medium">Laser Printers</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="h-[150px] w-[200px] flex items-center justify-center">
+                  <Image
+                    src="/epsong.png" // Replace with your image path
+                    alt="Professional Imaging Printers"
+                    width={200}
+                    height={150}
+                  />
+                </div>
+                <p className="mt-4 text-blue-600 font-medium">Discproducers</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="h-[150px] w-[200px] flex items-center justify-center">
+                  <Image
+                    src="/epsoni.png" // Replace with your image path
+                    alt="Label Printers"
+                    width={200}
+                    height={150}
+                  />
+                </div>
+                <p className="mt-4 text-blue-600 font-medium">Mobile and Cloud Solutions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Middle />
+      <FooterSection />
+    </>
   );
 }
-

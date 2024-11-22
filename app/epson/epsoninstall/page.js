@@ -126,80 +126,315 @@
 // export default Printersearch;
 
 
-"use client"; // This should be at the top of the file
+// "use client"; // This should be at the top of the file
 
-import Storepage from '@/app/components/Storepage';
-import Link from 'next/link';
+// import Storepage from '@/app/components/Storepage';
+// import Link from 'next/link';
+
+// function Printersearch() {
+//   return (
+//     <>
+//       <div className="h-[530px] mt-[80px] bg-[#0D2EA0]">
+//         <section
+//           className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[530px]"
+//           // style={{
+//           //   backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
+//           // }}
+//         >
+//           <div className="absolute inset-0 opacity-80"></div>
+
+//           {/* Main content */}
+//           <div className="relative z-10 text-white 2xl:ml-[-392px]">
+//             <h1 className="text-[54px] mb-4 xl:ml-[-247px] 2xl:ml-[5px]">Complete setup using Professionals Help</h1>
+//             <div className="border-t border-white w-[1100px] mx-auto mb-8 mt-[-19px] xl:ml-[-4px]"></div>
+
+//             {/* Main Content Section */}
+//             <div className="flex flex-col lg:flex-row justify-between items-start">
+//               {/* Left Side: Text and Steps */}
+//               <div className="space-y-4 lg:w-1/2 lg:pr-8 2xl:ml-[34px]">
+//                 {/* Step 1 */}
+//                 <div className="flex items-center space-x-3">
+//                   <span className="text-[35px] w-[41px] h-[58px]">1.</span>
+//                   <p className="text-[34px] whitespace-nowrap">Make sure that your printer is powered on</p>
+//                 </div>
+//                 {/* Step 2 */}
+//                 <div className="flex items-center space-x-3">
+//                   <span className="text-[34px] w-[50px] h-[40px]">2.</span>
+//                   <p className="text-[34px] whitespace-nowrap 2xl:ml-[5px] 2xl:mt-[9px]">Click Install Setup & driver to complete your printer setup</p>
+//                 </div>
+//                 <Link href="./epsoninstall/process">
+//                   <button className="install border border-white mt-8 bg-white w-[230px] h-[50px]  2xl:ml-[-189px] xl:ml-[-301px] py-2 px-6 rounded-lg font-bold shadow-md hover:bg-gray-100 transition duration-300 relative overflow-hidden">
+//                     <h1 className='text-[16px] text-black'>Install Setup & Drivers</h1>
+//                   </button>
+//                 </Link>
+//               </div>
+
+//               {/* Printer and Devices Image */}
+//               <div className="relative z-10 mt-12 lg:mt-0 lg:w-1/2 flex justify-center">
+//                 <img
+//                   src="https://wingscarepro.com/setup/resources/printer_images/OTHER-PRINTERS/290x245.png"  // Replace with actual path
+//                   alt="Printer setup devices"
+//                   width={339}
+//                   height={226}
+//                   className="object-contain 2xl:mr-[-1041px] "
+//                 />
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* Additional content */}
+//         <div className="flex flex-col items-center">
+//           <h1 className="mt-[30px] ml-[-592px] text-[16px]">Also available on:</h1>
+//           <img 
+//             src="https://www.freepnglogos.com/uploads/app-store-logo-png/google-play-and-apple-app-store-logos-22.png" 
+//             className="h-[50px] mt-4 ml-[-406px] " 
+//             alt="Available on"
+//           />
+//         </div>
+//       </div>
+//       <Storepage/>
+      
+//     </>
+//   );
+// }
+
+// export default Printersearch;
+
+
+
+"use client";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";  // Make sure to import Image from Next.js
+import NavbarSection from "@/app/components/NavbarSection";
+import FooterSection from "@/app/components/FooterSection";
+import Storepage from "@/app/components/Storepage";
 
 function Printersearch() {
+  const [isPopupVisible, setPopupVisible] = useState(false);
+  const [showErrorPage, setShowErrorPage] = useState(false);
+
+  const handleClosePopup = () => {
+    setPopupVisible(false);
+  };
+
+  const handleButtonClick = (e) => {
+    e.preventDefault(); // Prevent the default link behavior (URL change)
+    setPopupVisible(true); // Show the popup
+  };
+
+  useEffect(() => {
+    if (isPopupVisible) {
+      // Set a timer to show the error page after 15 seconds
+      const timer = setTimeout(() => {
+        setShowErrorPage(true); // Show error page after 15 seconds
+        setPopupVisible(false); // Optionally hide the popup after the error
+      }, 15000); // 15 seconds
+
+      return () => clearTimeout(timer); // Clear the timer if the component is unmounted or state changes
+    }
+  }, [isPopupVisible]);
+
+  if (showErrorPage) {
+    // This is the error page after 15 seconds of spinner
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-200">
+    
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden w-full max-w-4xl relative" style={{ minHeight: '529px' }}>
+        {/* Blue Triangle */}
+        {/* <div className="absolute bottom-0 left-0 w-full h-24 bg-[#0d2ea0]"
+          style={{ clipPath: 'polygon(0 100%, 100% 100%, 0 0)' }}></div> */}
+
+
+
+        {/* Content */}
+        <div className="">
+        <div className="bg-gray-100 px-6 py-4 flex justify-between items-center h-[79px]">
+          <div className="text-left">
+            <h1 className="text-lg font-semibold">Installing</h1>
+            <p className="text-gray-600 text-sm">Fatal error occurred during installation..</p>
+          </div>
+          <img
+            src="https://abhishekid.com/wp-content/uploads/epson-logo.png" className="h-[64px] w-[66px]"
+            alt="HP Logo"
+          />
+        </div>
+          <div className="flex justify-center mb-6 mt-[40px] mb-[40px]">
+            <img
+              src="https://www.iconexperience.com/_img/v_collection_png/256x256/shadow/printer_error.png" // Replace this with the actual path to the printer error image
+              alt="Printer Error"
+              width={150}
+              height={150}
+            />
+          </div>
+          <p className="text-gray-800 mb-4 text-center">
+            Fatal Error occurred Code: 0x6100004a during the software installation setup.
+            <br />
+            Please Contact Support before attempting to install it again.
+          </p>
+          <p className="font-bold text-center text-xl mb-2">PLEASE CONTACT FOR EPSON PRINTER SUPPORT</p>
+          <p className="text-center text-[#0d2ea0] font-bold text-xl">THROUGH LIVE CHAT</p>
+        </div>
+        <div className="relative mt-8">
+          {/* Blue Triangle Background */}
+          <div className="absolute bottom-0 left-0 w-full h-24 bg-[#0d2ea0]" style={{ clipPath: 'polygon(0 100%, 100% 100%, 0 0)' }}></div>
+          
+      
+          <div className="relative flex items-center text-white p-4 ml-4">
+          <Image
+            src="/epsoniamage.png"
+            height={45}
+            width={85}
+            alt="HP Logo"
+          />
+            <span className="text-lg font-semibold">24x7 EPSON Assistance</span>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+    );
+  }
+
   return (
     <>
-      <div className="h-[530px] mt-[80px] bg-[#0D2EA0]">
+      <NavbarSection/>
+      <div className={`h-[530px] ${isPopupVisible ? "blur-sm" : ""}`}>
         <section
           className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[530px]"
           // style={{
-          //   backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
+          //   backgroundImage:
+          //     "url(/topback.png)",
           // }}
         >
-          <div className="absolute inset-0 opacity-80"></div>
+          <div className="absolute inset-0 bg-blue-900 "></div>
 
-          {/* Main content */}
-          <div className="relative z-10 text-white 2xl:ml-[-392px]">
-            <h1 className="text-[54px] mb-4 xl:ml-[-247px] 2xl:ml-[5px]">Complete setup using Professionals Help</h1>
+          <div className="relative z-10 text-white 2xl:ml-[-392px] xl:ml-[-85px] mt-[-74px]">
+            <h1 className="text-[54px] mb-4 xl:ml-[-145px] 2xl:ml-[-63px]">
+              Complete setup using Professionals Help
+            </h1>
             <div className="border-t border-white w-[1100px] mx-auto mb-8 mt-[-19px] xl:ml-[-4px]"></div>
 
-            {/* Main Content Section */}
             <div className="flex flex-col lg:flex-row justify-between items-start">
-              {/* Left Side: Text and Steps */}
               <div className="space-y-4 lg:w-1/2 lg:pr-8 2xl:ml-[34px]">
-                {/* Step 1 */}
                 <div className="flex items-center space-x-3">
                   <span className="text-[35px] w-[41px] h-[58px]">1.</span>
-                  <p className="text-[34px] whitespace-nowrap">Make sure that your printer is powered on</p>
+                  <p className="text-[34px] whitespace-nowrap">
+                    Make sure that your printer is powered on
+                  </p>
                 </div>
-                {/* Step 2 */}
                 <div className="flex items-center space-x-3">
-                  <span className="text-[34px] w-[50px] h-[40px]">2.</span>
-                  <p className="text-[34px] whitespace-nowrap 2xl:ml-[5px] 2xl:mt-[9px]">Click Install Setup & driver to complete your printer setup</p>
+                  <span className="text-[34px] w-[50px] h-[40px] mt-[-26px]">2.</span>
+                  <p className="text-[34px] whitespace-nowrap 2xl:ml-[5px] 2xl:mt-[9px] mb-[23px]">
+                    Click Install Setup & driver to complete your printer setup
+                  </p>
                 </div>
-                <Link href="./epsoninstall/process">
-                  <button className="install border border-white mt-8 bg-white w-[230px] h-[50px]  2xl:ml-[-189px] xl:ml-[-301px] py-2 px-6 rounded-lg font-bold shadow-md hover:bg-gray-100 transition duration-300 relative overflow-hidden">
-                    <h1 className='text-[16px] text-black'>Install Setup & Drivers</h1>
-                  </button>
-                </Link>
+                <button
+                  onClick={handleButtonClick} // Handle button click to show popup
+                  className="mt-[100px] border border-white bg-white w-[230px] h-[50px] py-2 px-6 rounded-lg font-bold shadow-md hover:bg-gray-100 transition duration-300 2xl:ml-[-193px] xl:ml-[-187px]"
+                >
+                  <h1 className="text-[16px] text-black">Install Epson Start</h1>
+                </button>
               </div>
 
-              {/* Printer and Devices Image */}
               <div className="relative z-10 mt-12 lg:mt-0 lg:w-1/2 flex justify-center">
-                <img
-                  src="https://wingscarepro.com/setup/resources/printer_images/OTHER-PRINTERS/290x245.png"  // Replace with actual path
-                  alt="Printer setup devices"
-                  width={316}
-                  height={252}
-                  className="object-contain 2xl:mr-[-1041px] "
-                />
+                {/* Placeholder for an image */}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Additional content */}
-        <div className="flex flex-col items-center">
-          <h1 className="mt-[30px] ml-[-592px] text-[16px]">Also available on:</h1>
-          <img 
-            src="https://www.freepnglogos.com/uploads/app-store-logo-png/google-play-and-apple-app-store-logos-22.png" 
-            className="h-[50px] mt-4 ml-[-406px] " 
+        <div className="flex flex-col items-center xl:ml-[-468px] 2xl:ml-[-688px]">
+          <h1 className="mt-[30px] 2xl:ml-[-592px] xl:ml-[-592px] text-[16px]">
+            Also available on:
+          </h1>
+          <img
+            src="https://www.freepnglogos.com/uploads/app-store-logo-png/google-play-and-apple-app-store-logos-22.png"
+            className="h-[50px] mt-4 ml-[-406px]"
             alt="Available on"
           />
         </div>
       </div>
+
+      {isPopupVisible && (
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white w-[596px] h-[443px] rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
+            <h2 className="text-[28px] font-semibold mb-4">Gathering device details...</h2>
+            {/* <svg
+              className="animate-spin duration-[15s] h-[40px]" // Spinner rotates for 15 seconds
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+              ></path> */}
+            {/* </svg> */}
+
+            <div className="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full text-center">
+        {/* Top Section: Icons and Animated Progress Bar */}
+        <div className="flex items-center justify-between">
+          {/* Left Icon */}
+          <div className="flex-shrink-0">
+            <Image
+              src="/hpsmaart.png" // Replace with your actual path
+              alt="HP Smart"
+              width={100}
+              height={100}
+            />
+          </div>
+
+          {/* Animated Progress Bar */}
+          <div className="w-[100px] h-[23px] mx-4">
+            <div className="relative w-full bg-gray-300 rounded-full h-4 overflow-hidden">
+              <div
+                className="absolute inset-0 h-full animate-progress"
+                style={{
+                  background: "linear-gradient(to right, #007dbd, #007dbd 80%, #ffffff 20%)",
+                }}
+              ></div>
+            </div>
+          </div>
+
+          {/* Right Icon */}
+          <div className="flex-shrink-0">
+            <Image
+              src="/blackprinter.gif" // Replace with your actual path
+              alt="Printer"
+              width={131}
+              height={131}
+            />
+          </div>
+        </div>
+
+        {/* Bottom Text */}
+        <p className="mt-6 text-[#212529] text-[21px] font-bold">
+          Please wait... Driver and software installing
+        </p>
+      </div>
+          </div>
+        </div>
+      )}
       <Storepage/>
-      
+      <FooterSection/>
     </>
   );
 }
 
 export default Printersearch;
+
+
 
 
 
