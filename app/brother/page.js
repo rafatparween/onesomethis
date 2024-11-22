@@ -271,33 +271,154 @@
 
 
 
-"use client";
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+// "use client";
+// import { useRouter } from 'next/navigation';
+// import React, { useState } from 'react';
 
-function Home() {
+// function Home() {
+//   const router = useRouter();
+//   const [searchTerm, setSearchTerm] = useState('');
+//   const [filteredModels, setFilteredModels] = useState([]);
+
+//   const printerModels = [
+//     'Brother MFC-J995DW Inkjet All-in-One Printer',
+// 'Brother MFC-L3770CDW Color Laser All-in-One Printer',
+// 'Brother HL-L2350DW Compact Laser Printer',
+// 'Brother MFC-L2710DW Compact Laser All-in-One Printer',
+// 'Brother MFC-J6945DW INKvestment Tank Color All-in-One Printer',
+// 'Brother HL-L6200DW Business Laser Printer',
+// 'Brother MFC-J5330DW INKvestment Tank Color All-in-One Printer',
+// 'Brother MFC-L5700DW Laser All-in-One Printer',
+// 'Brother DCP-L2550DW Compact Laser All-in-One Printer',
+// 'Brother MFC-L3750CDW Color Laser All-in-One Printer',
+// 'Brother MFC-J995DW INKvestment Tank Color All-in-One Printer',
+// 'Brother MFC-L6800DW Laser All-in-One Printer',
+// 'Brother MFC-L8900CDW Color Laser All-in-One Printer',
+// 'Brother HL-L2395DW All-in-One Laser Printer',
+// 'Brother MFC-J6935DW INKvestment Tank Color All-in-One Printer',
+//   ];
+
+//   const handleSearchChange = (event) => {
+//     const value = event.target.value;
+//     setSearchTerm(value);
+//     if (value) {
+//       const filtered = printerModels.filter((model) =>
+//         model.toLowerCase().includes(value.toLowerCase())
+//       );
+//       setFilteredModels(filtered);
+//     } else {
+//       setFilteredModels([]);
+//     }
+//   };
+
+//   const handleModelClick = (model) => {
+//     setSearchTerm(model); // Set the input value to the selected model
+//     setFilteredModels([]); // Clear the dropdown after selection
+//   };
+
+//   const handleSearchClick = () => {
+//     if (searchTerm) {
+//       const searchPath = searchTerm.replace(/\s+/g, '-').replace(/\//g, '-');
+//       router.push(`./brother/brotherinstall?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
+//     } else {
+//       alert("Please select or enter a model before searching."); // Alert if the input is empty
+//     }
+//   };
+
+//   return (
+//     <div className="h-[409px] mt-[80px] bg-[#0D2EA0]">
+//       <section 
+//         className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[409px]"
+//         // style={{
+//         //   backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
+//         // }}
+//       >
+//         <div className="absolute inset-0 opacity-80"></div>
+//         <div className="relative z-10 text-white 2xl:mt-[142px] xl:mt-[116px] 2xl:ml-[-825px] xl:ml-[-567px] ">
+//           <h1 className="text-4xl font-hp-simplified text-[44px] 2xl:ml-[-206px] xl:ml-[-309px]">Set up Brother Printer</h1>
+//           <p className="mt-[35px] text-[27px] text-[24px] xl:ml-[324px] 2xl:ml-[344px]">Enter your printer name and model number to get the right drivers for your printer.</p>
+
+//           {/* Input Section */}
+//           <div className="mt-8 flex space-x-4 justify-center">
+//             <input
+//               type="text"
+//               value={searchTerm}
+//               onChange={handleSearchChange}
+//               placeholder="Enter your product name here. For example: 'OfficeJet 9010'"
+//               className="px-4 py-2 w-full max-w-lg rounded-md text-gray-700 2xl:ml-[22px] xl:ml-[-19px]"
+//             />
+//             <button 
+//               onClick={handleSearchClick} // Use the search click function  
+//               className="bg-gray-300 text-gray-900 rounded-md w-[100px] h-[48px] 2xl:ml-[40px] "
+//               style={{ marginLeft: '41px' }}
+//             >
+//               Search
+//             </button>
+//           </div>
+
+//           {/* Dropdown for filtered models */}
+//           {filteredModels.length > 0 && (
+//             <ul className="absolute left-0 mt-1 w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg z-10 2xl:ml-[344px] xl:ml-[311px] text-black">
+//               {filteredModels.map((model) => (
+//                 <li
+//                   key={model}
+//                   onClick={() => handleModelClick(model)} // Set model on click
+//                   className="cursor-pointer p-2 hover:bg-gray-100"
+//                 >
+//                   {model}
+//                 </li>
+//               ))}
+//             </ul>
+//           )}
+//         </div>
+
+//         <div className="relative z-10 mt-12 ml-auto">
+//           <img
+//             src="https://onesomethis.online/assets/image/conn.png"  
+//             alt="Printer setup devices"
+//             width={450}
+//             height={296}
+//             className="object-contain 2xl:mr-[436px] xl:mr-[202px] 2xl:mr-[232px]"
+//           />
+//         </div>
+//       </section>
+//       <h1 className="text-[18px] w-[832px] h-[51px] ml-[369px] mt-[100px]">Install Smart driver and drivers on each mobile device or computer that you want to print from. Add the printer on the new device.</h1>
+//       <h1 className="mt-[30px] ml-[369px]">Need additional help with set-up? Visit <span className="text-[#007DBA]">Support</span></h1>
+//     </div>
+//   );
+// }
+
+// export default Home;
+
+
+"use client"
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function ManualsPage() {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredModels, setFilteredModels] = useState([]);
 
   const printerModels = [
     'Brother MFC-J995DW Inkjet All-in-One Printer',
-'Brother MFC-L3770CDW Color Laser All-in-One Printer',
-'Brother HL-L2350DW Compact Laser Printer',
-'Brother MFC-L2710DW Compact Laser All-in-One Printer',
-'Brother MFC-J6945DW INKvestment Tank Color All-in-One Printer',
-'Brother HL-L6200DW Business Laser Printer',
-'Brother MFC-J5330DW INKvestment Tank Color All-in-One Printer',
-'Brother MFC-L5700DW Laser All-in-One Printer',
-'Brother DCP-L2550DW Compact Laser All-in-One Printer',
-'Brother MFC-L3750CDW Color Laser All-in-One Printer',
-'Brother MFC-J995DW INKvestment Tank Color All-in-One Printer',
-'Brother MFC-L6800DW Laser All-in-One Printer',
-'Brother MFC-L8900CDW Color Laser All-in-One Printer',
-'Brother HL-L2395DW All-in-One Laser Printer',
-'Brother MFC-J6935DW INKvestment Tank Color All-in-One Printer',
+    'Brother MFC-L3770CDW Color Laser All-in-One Printer',
+    'Brother HL-L2350DW Compact Laser Printer',
+    'Brother MFC-L2710DW Compact Laser All-in-One Printer',
+    'Brother MFC-J6945DW INKvestment Tank Color All-in-One Printer',
+    'Brother HL-L6200DW Business Laser Printer',
+    'Brother MFC-J5330DW INKvestment Tank Color All-in-One Printer',
+    'Brother MFC-L5700DW Laser All-in-One Printer',
+    'Brother DCP-L2550DW Compact Laser All-in-One Printer',
+    'Brother MFC-L3750CDW Color Laser All-in-One Printer',
+    'Brother MFC-J995DW INKvestment Tank Color All-in-One Printer',
+    'Brother MFC-L6800DW Laser All-in-One Printer',
+    'Brother MFC-L8900CDW Color Laser All-in-One Printer',
+    'Brother HL-L2395DW All-in-One Laser Printer',
+    'Brother MFC-J6935DW INKvestment Tank Color All-in-One Printer',
   ];
 
+  // Handle search input change and filter models based on the search term
   const handleSearchChange = (event) => {
     const value = event.target.value;
     setSearchTerm(value);
@@ -311,81 +432,123 @@ function Home() {
     }
   };
 
+  // Set the search term when a user clicks a model from the filtered list
   const handleModelClick = (model) => {
-    setSearchTerm(model); // Set the input value to the selected model
+    setSearchTerm(model);
     setFilteredModels([]); // Clear the dropdown after selection
   };
 
+  // Handle search button click to navigate to the install page
   const handleSearchClick = () => {
     if (searchTerm) {
       const searchPath = searchTerm.replace(/\s+/g, '-').replace(/\//g, '-');
-      router.push(`./brother/brotherinstall?model=${encodeURIComponent(searchPath)}`); // Navigate to the install page
+      router.push(`./brother/brotherinstall?model=${encodeURIComponent(searchPath)}`);
     } else {
-      alert("Please select or enter a model before searching."); // Alert if the input is empty
+      alert("Please select or enter a model before searching.");
     }
   };
 
-  return (
-    <div className="h-[409px] mt-[80px] bg-[#0D2EA0]">
-      <section 
-        className="flex flex-col justify-center items-center text-center py-12 relative bg-cover bg-center h-[409px]"
-        // style={{
-        //   backgroundImage: "url('https://wingscarepro.com/setup/resources/assets/css/page/resources/assets/img/top_background_image.png')"
-        // }}
-      >
-        <div className="absolute inset-0 opacity-80"></div>
-        <div className="relative z-10 text-white 2xl:mt-[142px] xl:mt-[116px] 2xl:ml-[-825px] xl:ml-[-567px] ">
-          <h1 className="text-4xl font-hp-simplified text-[44px] 2xl:ml-[-206px] xl:ml-[-309px]">Set up Brother Printer</h1>
-          <p className="mt-[35px] text-[27px] text-[24px] xl:ml-[324px] 2xl:ml-[344px]">Enter your printer name and model number to get the right drivers for your printer.</p>
+  const categories = [
+    { name: "Inkjet Printer / Fax / MFC / DCP", icon: "🖨️" },
+    { name: "Monochrome Laser Printer", icon: "⚫" },
+    { name: "Color Printer (Laser / LED)", icon: "🌈" },
+    { name: "Monochrome Laser Fax / MFC / DCP", icon: "📠" },
+    { name: "Color Fax / MFC / DCP (Laser / LED)", icon: "📞" },
+    { name: "High Speed Workgroup Printer", icon: "🚀" },
+    { name: "P-touch (PT)", icon: "🔖" },
+    { name: "Compact Label Printer", icon: "🏷️" },
+    { name: "Label Printer (QL/LTD), Industrial Label Printer (TJ)", icon: "🖋️" },
+    { name: "Home Sewing Machine", icon: "🧵" },
+    { name: "Document Scanner", icon: "📄" },
+    { name: "Creative Printer (HL)", icon: "🎨" },
+    { name: "Ribbon Transfer FAX", icon: "📜" },
+    { name: "Web Services", icon: "🌐" },
+    { name: "Mobile Printer (RJ/PJ/MW)", icon: "📱" },
+    { name: "Tape Creator", icon: "🖌️" },
+    { name: "Stamp Creator", icon: "📬" },
+    { name: "Print / Fax Servers", icon: "🔌" },
+  ];
 
-          {/* Input Section */}
-          <div className="mt-8 flex space-x-4 justify-center">
+  return (
+    <div className="bg-gray-50 min-h-screen">
+      <header className="bg-blue-900 text-white">
+        <div className="container mx-auto flex justify-between items-center py-4 px-6">
+          <h1 className="text-xl font-bold">Brother</h1>
+          <nav className="text-sm space-x-4">
+            <a href="#" className="hover:underline">
+              Contact Us
+            </a>
+            <a href="#" className="hover:underline">
+              Product Registration
+            </a>
+            <a href="#" className="hover:underline">
+              Visit www.brother-usa.com
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <main className="container mx-auto py-8 px-6">
+        <section className="bg-gray-100 border-t border-b py-6 px-4 rounded-lg">
+          <h2 className="text-2xl font-bold mb-4">Manuals</h2>
+          <div className="flex items-center space-x-4">
+            <label htmlFor="search" className="font-medium text-gray-700">
+              Search by Model Name
+            </label>
             <input
+              id="search"
               type="text"
               value={searchTerm}
               onChange={handleSearchChange}
-              placeholder="Enter your product name here. For example: 'OfficeJet 9010'"
-              className="px-4 py-2 w-full max-w-lg rounded-md text-gray-700 2xl:ml-[22px] xl:ml-[-19px]"
+              placeholder="Enter your model name"
+              className="flex-grow px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
             />
-            <button 
-              onClick={handleSearchClick} // Use the search click function  
-              className="bg-gray-300 text-gray-900 rounded-md w-[100px] h-[48px] 2xl:ml-[40px] "
-              style={{ marginLeft: '41px' }}
+            <button
+              onClick={handleSearchClick}
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
             >
               Search
             </button>
           </div>
 
-          {/* Dropdown for filtered models */}
           {filteredModels.length > 0 && (
-            <ul className="absolute left-0 mt-1 w-full max-w-lg bg-white border border-gray-300 rounded-lg shadow-lg z-10 2xl:ml-[344px] xl:ml-[311px] text-black">
-              {filteredModels.map((model) => (
+            <ul className="mt-2 list-disc pl-6 text-sm text-gray-600">
+              {filteredModels.map((model, index) => (
                 <li
-                  key={model}
-                  onClick={() => handleModelClick(model)} // Set model on click
-                  className="cursor-pointer p-2 hover:bg-gray-100"
+                  key={index}
+                  onClick={() => handleModelClick(model)}
+                  className="cursor-pointer hover:text-blue-600"
                 >
                   {model}
                 </li>
               ))}
             </ul>
           )}
-        </div>
 
-        <div className="relative z-10 mt-12 ml-auto">
-          <img
-            src="https://onesomethis.online/assets/image/conn.png"  
-            alt="Printer setup devices"
-            width={450}
-            height={296}
-            className="object-contain 2xl:mr-[436px] xl:mr-[202px] 2xl:mr-[232px]"
-          />
-        </div>
-      </section>
-      <h1 className="text-[18px] w-[832px] h-[51px] ml-[369px] mt-[100px]">Install Smart driver and drivers on each mobile device or computer that you want to print from. Add the printer on the new device.</h1>
-      <h1 className="mt-[30px] ml-[369px]">Need additional help with set-up? Visit <span className="text-[#007DBA]">Support</span></h1>
+          <p className="mt-2 text-sm text-gray-500">
+            <a href="#" className="text-blue-600 hover:underline">
+              How to identify your model name
+            </a>
+          </p>
+        </section>
+
+        <section className="mt-8">
+          <h3 className="text-xl font-bold mb-4">Search by Product Category</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+            {categories.map((category, index) => (
+              <div
+                key={index}
+                className="bg-gray-100 flex flex-col items-center p-4 rounded-lg shadow hover:shadow-lg transition-shadow"
+              >
+                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gray-200 mb-4 text-3xl">
+                  {category.icon}
+                </div>
+                <p className="text-sm text-center">{category.name}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
-
-export default Home;
