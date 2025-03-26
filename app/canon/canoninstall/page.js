@@ -527,7 +527,7 @@ export default function Printersearch() {
         </div>
 
         {/* Important Text Section */}
-        <div className="bg-[#FFEEEE] text-[#000000] p-4 rounded-md text-sm">
+        {/* <div className="bg-[#FFEEEE] text-[#000000] p-4 rounded-md text-sm">
           <p className='text-[16px]'>
             If you are using <span className="font-semibold">Windows 11 in S mode</span>, <span className="font-semibold">Windows 10 in S mode</span>, or <span className="font-semibold">Windows on Arm</span>, see&nbsp;
             <Link href="#" className="text-[#0000CC] underline">
@@ -535,14 +535,14 @@ export default function Printersearch() {
             </Link>
             .
           </p>
-        </div>
+        </div> */}
 
         {/* Instructions */}
-        <p className="mt-4 mb-4 text-gray-700">Click Download to start setup.</p>
-        <p className="mb-6 text-gray-700">Follow the on-screen instructions to complete the setup.</p>
+        <p className="mt-4 mb-4 text-black font-bold text-[16px]">Click Download to start setup.</p>
+        <p className="mb-6 text-black font-bold text-[16px]">Follow the on-screen instructions to complete the setup.</p>
 
         {/* Download Button */}
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-[80px]">
           <button
             onClick={handleButtonClick}
             className="flex items-center justify-center bg-gray-200 text-lg font-semibold text-gray-700 rounded shadow hover:bg-gray-300 transition"

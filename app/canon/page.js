@@ -622,36 +622,21 @@ const CanonProductPage = () => {
   const router = useRouter();
 
   const modelNumbers = [
-    "PIXMA TS9120",
-  "PIXMA TS8320",
-  "PIXMA TS6220",
-  "PIXMA TR8520",
-  "PIXMA MG3620",
-  "PIXMA G6020",
-  "PIXMA iP110",
-  "MAXIFY MB2120",
-  "MAXIFY MB2720",
-  "MAXIFY GX7020",
-  "MAXIFY GX6020",
-  "MAXIFY iB4120",
-  "imageCLASS MF743Cdw",
-  "imageCLASS MF445dw",
-  "imageCLASS MF644Cdw",
-  "imageCLASS LBP6030w",
-  "imageCLASS MF3010",
-  "imageCLASS D1620",
-  "imagePROGRAF PRO-1000",
-  "imagePROGRAF PRO-300",
-  "imagePROGRAF TM-300",
-  "imagePROGRAF TA-20",
-  "imagePROGRAF PRO-2100",
-  "SELPHY CP1300",
-  "SELPHY CP1200",
-  "SELPHY CP910",
-  "SELPHY QX10",
-  "CanoScan LiDE 300",
-  "CanoScan LiDE 400",
-  "CanoScan 9000F Mark II"
+    "Canon imagePROGRAF PRO Series",
+    "Canon imagePROGRAF TM Series",
+    // "Canon imagePROGRAF TA Series",
+    // "Canon SELPHY CP Series",
+    // "Canon SELPHY QX Series",
+    // "Canon CanoScan LiDE Series",
+    // "Canon MAXIFY GX Series",
+    // "Canon MAXIFY iB Series",
+    // "Canon imageCLASS MF Series",
+    // "Canon PIXMA TS Series",
+    // "Canon PIXMA TR Series",
+    // "Canon PIXMA MG Series",
+    // "Canon PIXMA G Series",
+    // "Canon PIXMA iP Series",
+    // "Canon MAXIFY MB Series",
   ];
 
   // Filter model numbers based on input
@@ -686,7 +671,7 @@ const CanonProductPage = () => {
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen w-[80%] m-auto">
       {/* Canon Header with logo and search */}
       <header className="border-b py-4 bg-gray-100">
         <div className="container mx-auto flex justify-between items-center">
@@ -774,7 +759,7 @@ const CanonProductPage = () => {
                   type="text"
                   value={selectedModel}
                   onChange={handleInputChange}
-                  placeholder="Example: TS9030"
+                  placeholder="Example:CanoScan LiDE 300"
                   className="border border-gray-300 px-4 py-2 rounded-md flex-grow"
                 />
                 
@@ -820,7 +805,7 @@ const CanonProductPage = () => {
 
           <div className="p-6 w-full">
             <h1 className="text-lg font-semibold mb-4">CanoScan</h1>
-            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
+            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px]  xl:w-[892px] xl:ml-[40px] shadow-md">
               <button
                 onClick={toggleExpand}
                 className="flex items-center w-full px-4 py-2"
@@ -836,14 +821,14 @@ const CanonProductPage = () => {
 
             {isExpanded && (
               <div className="flex space-x-4 mt-4 ml-[104px]">
-                <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 400</button>
+                <button cla6ssName="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 400</button>
                 <button className="bg-gray-300 rounded-md px-6 py-2 shadow-md">LiDE 300</button>
               </div>
             )}
           </div>
           <div className="p-6 w-full">
             <h1 className="text-lg font-semibold mb-4">imagePROGRAF</h1>
-            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
+            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px]  xl:w-[892px] xl:ml-[40px] shadow-md">
               <button
                 onClick={toggleExpand}
                 className="flex items-center w-full px-4 py-2"
@@ -866,7 +851,7 @@ const CanonProductPage = () => {
           </div>
           <div className="p-6 w-full">
             <h1 className="text-lg font-semibold mb-4">MAXIFY</h1>
-            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
+            <div className="border rounded-md hover:bg-red-50  2xl:w-[892px] 2xl:ml-[40px]  xl:w-[892px] xl:ml-[40px] shadow-md">
               <button
                 onClick={toggleExpand}
                 className="flex items-center w-full px-4 py-2"
@@ -889,7 +874,7 @@ const CanonProductPage = () => {
           </div>
           <div className="p-6 w-full">
             <h1 className="text-lg font-semibold mb-4">PIXUS/PIXMA</h1>
-            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
+            <div className="border rounded-md hover:bg-red-50  2xl:w-[892px] 2xl:ml-[40px]  xl:w-[892px] xl:ml-[40px] shadow-md">
               <button
                 onClick={toggleExpand}
                 className="flex items-center w-full px-4 py-2"
@@ -912,7 +897,7 @@ const CanonProductPage = () => {
           </div>
           <div className="p-6 w-full">
             <h1 className="text-lg font-semibold mb-4">imageCLASS</h1>
-            <div className="border rounded-md hover:bg-red-50 2xl:w-[1348px] 2xl:ml-[40px] xl:w-[1077px] xl:ml-[40px] shadow-md">
+            <div className="border rounded-md hover:bg-red-50 2xl:w-[892px]px] 2xl:ml-[40px] xl:w-[892px] xl:ml-[40px] shadow-md">
               <button
                 onClick={toggleExpand}
                 className="flex items-center w-full px-4 py-2"
