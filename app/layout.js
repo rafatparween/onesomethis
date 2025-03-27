@@ -13,8 +13,8 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "onlineprintdrive",
-  description: "onlineprintdrive",
+  title: "ijprinterlivesolution",
+  description: "ijprinterlivesolution",
 };
 
 export default function RootLayout({ children }) {

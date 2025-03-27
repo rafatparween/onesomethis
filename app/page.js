@@ -24,9 +24,9 @@ export default function Home() {
       <Technicians/>
       <Assistance/>
       <SkillsGrid />
-      <Avoidprinter/>
+      {/* <Avoidprinter/>
       <Help/>
-      <Error/>
+      <Error/> */}
       
       <Footer/>
 
